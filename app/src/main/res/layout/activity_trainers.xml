@@ -92,8 +92,10 @@
 
     </androidx.cardview.widget.CardView>
 
+<!--    /////////////////////////////////////////////////////////////////-->
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView_trainers1"
+        android:id="@+id/cardView_trainers2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -118,7 +120,7 @@
             app:cardCornerRadius="100dp">
 
             <ImageView
-                android:id="@+id/img_trainer1"
+                android:id="@+id/img_trainer2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
@@ -127,17 +129,17 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/text_trainerName1"
+            android:id="@+id/text_trainerName2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Bob Smith"
+            android:text="Rob Willson"
             android:textSize="20sp"
 
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/text_trainerInfo1"
+            android:id="@+id/text_trainerInfo2"
             android:layout_width="200dp"
             android:layout_height="75dp"
             android:layout_gravity="center_horizontal"
@@ -148,8 +150,11 @@
 
     </androidx.cardview.widget.CardView>
 
+    <!--    /////////////////////////////////////////////////////////////////-->
+
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView_trainers1"
+        android:id="@+id/cardView_trainers3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -174,7 +179,7 @@
             app:cardCornerRadius="100dp">
 
             <ImageView
-                android:id="@+id/img_trainer1"
+                android:id="@+id/img_trainer3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
@@ -183,17 +188,17 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/text_trainerName1"
+            android:id="@+id/text_trainerName3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Bob Smith"
+            android:text="Will Clark"
             android:textSize="20sp"
 
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/text_trainerInfo1"
+            android:id="@+id/text_trainerInfo3"
             android:layout_width="200dp"
             android:layout_height="75dp"
             android:layout_gravity="center_horizontal"
