@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_blank_short"
     >
+    <include
+        layout="@layout/appbar" />
 
     <TextView
         android:id="@+id/textView_trainersHeader"
@@ -20,7 +22,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintVertical_bias="0.218" />
 
     <ImageView
         android:id="@+id/imageView_aboutHeader"
@@ -31,7 +33,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025"
+        app:layout_constraintVertical_bias="0.087"
         app:srcCompat="@drawable/ic_question_large_red" />
 
     <TextView

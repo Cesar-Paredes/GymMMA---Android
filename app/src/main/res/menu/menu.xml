@@ -42,16 +42,43 @@
 
             </item>
 
+            <item
+                android:title="Account"
+                android:icon="@drawable/ic_account_small_red"
+                android:id="@+id/menuAccount"
+                app:showAsAction="ifRoom"
+                />
+
+            <item
+                android:title="About"
+                android:icon="@drawable/ic_question_small_red"
+                android:id="@+id/menuAbout"
+                app:showAsAction="ifRoom"
+                />
+
+            <item
+                android:title="Contact"
+                android:icon="@drawable/ic_email_small_red"
+                android:id="@+id/menuContact"
+                app:showAsAction="ifRoom"
+                />
+            <item
+                android:title="MMA News"
+                android:icon="@drawable/ic_news_small_red"
+                android:id="@+id/menuNews"
+                app:showAsAction="ifRoom"
+                />
+            <item
+                android:title="Trainers"
+                android:icon="@drawable/ic_trainers_small_red"
+                android:id="@+id/menuTrainers"
+                app:showAsAction="ifRoom"
+                />
+
+
+
         </menu>
 
-
-
     </item>
-
-
-
-
-
-
 
 </menu>

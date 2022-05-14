@@ -34,10 +34,10 @@ public class GroupActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
 
+
             case R.id.menuHome:
                 Toast.makeText(this,"Welcome home!",Toast.LENGTH_SHORT).show();
-                Intent homeHomeIntent = new Intent(GroupActivity.this, HomeActivity.class);
-                startActivity(homeHomeIntent);
+                clickMenuNavigate(HomeActivity.class);
                 return true;
 
             case R.id.menuSchedule:
@@ -53,6 +53,31 @@ public class GroupActivity extends AppCompatActivity {
             case R.id.menuBookPrivate:
                 Toast.makeText(this,"Book a private class!",Toast.LENGTH_SHORT).show();
                 clickMenuNavigate(PrivateActivity.class);
+                return true;
+
+            case R.id.menuAccount:
+                Toast.makeText(this,"View your account details!",Toast.LENGTH_SHORT).show();
+                clickMenuNavigate(AccountActivity.class);
+                return true;
+
+            case R.id.menuAbout:
+                Toast.makeText(this,"Get to know us!",Toast.LENGTH_SHORT).show();
+                clickMenuNavigate(AboutActivity.class);
+                return true;
+
+            case R.id.menuContact:
+                Toast.makeText(this,"Contact us!",Toast.LENGTH_SHORT).show();
+                clickMenuNavigate(ContactActivity.class);
+                return true;
+
+            case R.id.menuNews:
+                Toast.makeText(this,"See whats happening in MMA!",Toast.LENGTH_SHORT).show();
+                clickMenuNavigate(NewsActivity.class);
+                return true;
+
+            case R.id.menuTrainers:
+                Toast.makeText(this,"View our trainers!",Toast.LENGTH_SHORT).show();
+                clickMenuNavigate(TrainersActivity.class);
                 return true;
 
             default:
