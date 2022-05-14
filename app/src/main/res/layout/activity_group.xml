@@ -5,6 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background_blank_short">
 
+    <include
+        layout="@layout/appbar" />
+
     <ImageView
         android:id="@+id/imageView_groupHeader"
         android:layout_width="wrap_content"
@@ -14,7 +17,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.025"
+        app:layout_constraintVertical_bias="0.104"
         app:srcCompat="@drawable/ic_group_large_red" />
 
     <TextView
@@ -27,12 +30,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.173" />
-
-
+        app:layout_constraintVertical_bias="0.235" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

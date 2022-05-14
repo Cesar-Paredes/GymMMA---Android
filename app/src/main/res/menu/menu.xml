@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="home"
+        android:icon="@drawable/ic_home_small"
+        android:id="@+id/menuHome"
+        app:showAsAction="ifRoom">
+    </item>
+
+    <item
+        android:title="menu"
+        android:icon="@drawable/ic_menu"
+        android:id="@+id/menu"
+        app:showAsAction="ifRoom">
+
+        <menu>
+            <item
+                android:title="Schedule"
+                android:icon="@drawable/ic_schedule_small_red"
+                android:id="@+id/menuSchedule"
+                app:showAsAction="ifRoom"
+                />
+
+
+            ///drop down for class(group,private)
+            <item
+                android:id="@+id/menuBook"
+                android:title="Book"
+                android:icon="@drawable/ic_add_small_red">
+                    <menu>
+                        <item
+                            android:id="@+id/menuBookGroup"
+                            android:title="Group"
+                            android:icon="@drawable/ic_group_small_red"/>
+                        <item
+                            android:id="@+id/menuBookPrivate"
+                            android:title="Private"
+                            android:icon="@drawable/ic_private_small_red"/>
+                    </menu>
+
+            </item>
+
+        </menu>
+
+
+
+    </item>
+
+
+
+
+
+
+
+</menu>

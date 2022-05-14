@@ -32,8 +32,10 @@
         app:layout_constraintBottom_toTopOf="@+id/displayData"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_fact_check_24" />
+        app:layout_constraintTop_toTopOf="parent"/>
+<!--        app:srcCompat="@drawable/ic_baseline_fact_check_24" -->
+
+    />
 
     <TextView
         android:id="@+id/displayData"
