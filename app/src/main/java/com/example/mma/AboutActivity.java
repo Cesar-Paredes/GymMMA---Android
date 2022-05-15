@@ -1,10 +1,12 @@
 package com.example.mma;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -88,4 +90,14 @@ public class AboutActivity extends AppCompatActivity {
         Intent intent = new Intent(AboutActivity.this,c);
         startActivity(intent);
     }
+
+
+    //////////////// IMPLICIT MAP BUTTON
+    public void clickMap(View view){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(("https://goo.gl/maps/RRVFAd44smfRkCXQ6")));
+        startActivity(intent);
+    }
+
+
+///
 }
