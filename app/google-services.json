@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "74598272290",
+    "project_id": "mma-project-fa34b",
+    "storage_bucket": "mma-project-fa34b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74598272290:android:88e7fedff2a91bf211a97b",
+        "android_client_info": {
+          "package_name": "com.example.mma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74598272290-9te0k0fg8ikj7ispgegmbpba34n23667.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlF6zgcrTVIruLIfr_z4fJa4Lq3zMwRE0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74598272290-9te0k0fg8ikj7ispgegmbpba34n23667.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
