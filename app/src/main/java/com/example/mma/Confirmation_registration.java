@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 
 public class Confirmation_registration extends AppCompatActivity {
@@ -14,10 +15,6 @@ public class Confirmation_registration extends AppCompatActivity {
         setContentView(R.layout.activity_confirmation_registration);
 
         //Cesar Paredes - Start/////////////////////////////////
-
-        //this will send the activity to the parent activity
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
 
         Intent intent = getIntent();
@@ -39,6 +36,19 @@ public class Confirmation_registration extends AppCompatActivity {
                         "FIRST NAME: " + firstName   + "\n" +
                         "LAST NAME:  " + lastName  + "\n" +
                         "EMAIL:            " + email+ "\n");
+
+        //this will change the screen automatically after a certain time, it will go to home page
+        int delay = 5000;
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Confirmation_registration.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        }, delay);
+
 
         //Cesar Paredes - End/////////////////////////////////
 
