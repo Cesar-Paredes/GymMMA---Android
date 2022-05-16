@@ -16,12 +16,11 @@
         android:id="@+id/imageView_mainGloves"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.07"
         app:srcCompat="@drawable/logo_gloves" />
 
     <TextView
@@ -32,60 +31,57 @@
         android:textColor="#000000"
         android:textSize="48sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editText_mainUsername"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_mainGloves"
+        app:layout_constraintVertical_bias="0.638" />
 
     <Button
         android:id="@+id/button_mainLogin"
-        android:layout_width="376dp"
-        android:layout_height="76dp"
-        android:onClick="clickLogin"
+        android:layout_width="377dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="152dp"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.76" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_mainRegister"
-        android:layout_width="375dp"
-        android:layout_height="69dp"
+        android:layout_width="377dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="16dp"
         android:onClick="clickRegister"
         android:text="Register"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.879" />
+        app:layout_constraintTop_toBottomOf="@+id/button_mainLogin" />
 
     <EditText
         android:id="@+id/editText_mainUsername"
-        android:layout_width="372dp"
-        android:layout_height="42dp"
+        android:layout_width="373dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="320dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editText_mainPassword"
-        android:layout_width="370dp"
-        android:layout_height="48dp"
+        android:layout_width="371dp"
+        android:layout_height="59dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_mainLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_mainUsername"
+        app:layout_constraintVertical_bias="0.194" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

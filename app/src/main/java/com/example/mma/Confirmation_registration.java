@@ -14,10 +14,16 @@ public class Confirmation_registration extends AppCompatActivity {
         setContentView(R.layout.activity_confirmation_registration);
 
         //Cesar Paredes - Start/////////////////////////////////
+
+        //this will send the activity to the parent activity
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
         Intent intent = getIntent();
 
         String username = intent.getStringExtra("USERNAME");
-        String password = intent.getStringExtra("PASSWORD");
+        String password = "******";
         String firstName = intent.getStringExtra("FIRSTNAME");
         String lastName = intent.getStringExtra("LASTNAME");
         String email = intent.getStringExtra("EMAIL");
@@ -25,11 +31,14 @@ public class Confirmation_registration extends AppCompatActivity {
         //display the data
         TextView display = (TextView) findViewById(R.id.displayData);
 
-        display.setText("USERNAME: " + username + "\n" +
-                        "PASSWORD: " + password  + "\n" +
+
+
+
+        display.setText("USERNAME:   " + username + "\n" +
+                        "PASSWORD:   " + password  + "\n" +
                         "FIRST NAME: " + firstName   + "\n" +
-                        "LAST NAME: " + lastName  + "\n" +
-                        "EMAIL: " + email);
+                        "LAST NAME:  " + lastName  + "\n" +
+                        "EMAIL:            " + email+ "\n");
 
         //Cesar Paredes - End/////////////////////////////////
 

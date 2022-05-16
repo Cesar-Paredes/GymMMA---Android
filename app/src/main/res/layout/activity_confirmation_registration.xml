@@ -8,42 +8,73 @@
 
     <!--    this textview will display the data from the confirmation screen-->
 
-    <TextView
-        android:id="@+id/textView_trainersHeader3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="26dp"
-        android:text="Confirmation of registration"
-        android:textColor="#FF0000"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/displayData"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="144dp"
-        app:layout_constraintBottom_toTopOf="@+id/displayData"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_fact_check_24" />
 
-    <TextView
-        android:id="@+id/displayData"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
-        android:text="TextView"
-        android:textSize="20sp"
+        android:background="@drawable/background_blank_short"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/accountCreated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="21dp"
+            android:text="Account created"
+            android:textColor="#FF0000"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/accountCreated2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/accountCreated2"
+            android:layout_width="379dp"
+            android:layout_height="82dp"
+            android:text="Check your email inbox to confirm your account"
+            android:textColor="#090909"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.42" />
+
+        <TextView
+            android:id="@+id/displayData"
+            android:layout_width="366dp"
+            android:layout_height="270dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:text="TextView"
+            android:textColor="#090909"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/accountCreated2"
+            app:layout_constraintVertical_bias="0.297" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="171dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/accountCreated"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_fact_check_24" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
