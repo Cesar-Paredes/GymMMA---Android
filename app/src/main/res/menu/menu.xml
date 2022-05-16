@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="home"
+        android:icon="@drawable/ic_home_small"
+        android:id="@+id/menuHome"
+        app:showAsAction="ifRoom">
+    </item>
+
+    <item
+        android:title="menu"
+        android:icon="@drawable/ic_menu"
+        android:id="@+id/menu"
+        app:showAsAction="ifRoom">
+
+        <menu>
+            <item
+                android:title="Schedule"
+                android:icon="@drawable/ic_schedule_small_red"
+                android:id="@+id/menuSchedule"
+                app:showAsAction="ifRoom"
+                />
+
+
+            ///drop down for class(group,private)
+            <item
+                android:id="@+id/menuBook"
+                android:title="Book"
+                android:icon="@drawable/ic_add_small_red">
+                    <menu>
+                        <item
+                            android:id="@+id/menuBookGroup"
+                            android:title="Group"
+                            android:icon="@drawable/ic_group_small_red"/>
+                        <item
+                            android:id="@+id/menuBookPrivate"
+                            android:title="Private"
+                            android:icon="@drawable/ic_private_small_red"/>
+                    </menu>
+
+            </item>
+
+            <item
+                android:title="Account"
+                android:icon="@drawable/ic_account_small_red"
+                android:id="@+id/menuAccount"
+                app:showAsAction="ifRoom"
+                />
+
+            <item
+                android:title="About"
+                android:icon="@drawable/ic_question_small_red"
+                android:id="@+id/menuAbout"
+                app:showAsAction="ifRoom"
+                />
+
+            <item
+                android:title="Contact"
+                android:icon="@drawable/ic_email_small_red"
+                android:id="@+id/menuContact"
+                app:showAsAction="ifRoom"
+                />
+            <item
+                android:title="MMA News"
+                android:icon="@drawable/ic_news_small_red"
+                android:id="@+id/menuNews"
+                app:showAsAction="ifRoom"
+                />
+            <item
+                android:title="Trainers"
+                android:icon="@drawable/ic_trainers_small_red"
+                android:id="@+id/menuTrainers"
+                app:showAsAction="ifRoom"
+                />
+
+
+
+        </menu>
+
+    </item>
+
+</menu>
