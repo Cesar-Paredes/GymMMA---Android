@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -90,5 +91,18 @@ public class ScheduleActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    ///////////////////
 
+    public void clickMonday(View view) {
+        Intent intent = new Intent(ScheduleActivity.this, ScheduleResultActivity.class);
+        intent.putExtra("Day","Monday");
+        startActivity(intent);
+    }
+    public void clickTuesday(View view) {
+        Intent intent = new Intent(ScheduleActivity.this, ScheduleResultActivity.class);
+        intent.putExtra("Day","Tuesday");
+        startActivity(intent);
+    }
+
+//
 }
