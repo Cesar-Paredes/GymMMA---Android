@@ -8,6 +8,7 @@
     <include
         layout="@layout/appbar" />
 
+
     <ImageView
         android:id="@+id/imageView_trainersHeader"
         android:layout_width="wrap_content"
@@ -17,9 +18,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.087"
+        app:layout_constraintVertical_bias="0.104"
         app:srcCompat="@drawable/ic_trainers_large_red" />
-
 
     <TextView
         android:id="@+id/textView_trainersHeader"

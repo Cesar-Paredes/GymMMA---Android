@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">MMA</string>
+
+    /////PRIVATE CLASSES ARRAY DATA
+    <string-array name="privateNoClasses">
+        <item>----NO CLASSES----</item>
+    </string-array>
+
+    <string-array name="privateMonday">
+        <item>----PICK A TIME-TRAINER-CLASS----</item>
+        <item>6PM - BOB  - BOXING       - $40</item>
+        <item>6PM - JOHN - KICKBOXING   - $50</item>
+        <item>6PM - BILL - BJJ          - $40</item>
+        <item>-----------------</item>
+        <item>7PM - BOB  - BOXING       - $40</item>
+        <item>7PM - JOHN - KICKBOXING   - $50</item>
+        <item>7PM - BILL - BJJ          - $40</item>
+    </string-array>
+
+    <string-array name="privateTuesday">
+        <item>----PICK A TIME-TRAINER-CLASS----</item>
+        <item>6PM - BOB  - BOXING       - $40</item>
+        <item>6PM - JOHN - KICKBOXING   - $50</item>
+        <item>-----------------</item>
+        <item>7PM - BOB  - BOXING       - $40</item>
+        <item>7PM - JOHN - KICKBOXING   - $50</item>
+        <item>7PM - BILL - BJJ          - $40</item>
+        <item>-----------------</item>
+        <item>8PM - BOB  - BOXING       - $40</item>
+    </string-array>
+
 </resources>

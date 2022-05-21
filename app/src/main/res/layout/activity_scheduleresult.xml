@@ -20,9 +20,8 @@
         app:layout_constraintVertical_bias="0.087"
         app:srcCompat="@drawable/ic_schedule_large_red" />
 
-
     <TextView
-        android:id="@+id/textView_scheduleHeader"
+        android:id="@+id/textViewDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Weekly Schedule"
@@ -36,34 +35,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.218" />
 
-    <Button
-        android:id="@+id/buttonMonday"
-        android:layout_width="383dp"
-        android:layout_height="78dp"
-        android:onClick="clickMonday"
-        android:text="Monday"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="412dp"
+        android:layout_height="461dp"
+        android:padding="4dp"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.372" />
-
-    <Button
-        android:id="@+id/buttonTuesday"
-        android:layout_width="383dp"
-        android:layout_height="78dp"
-        android:onClick="clickTuesday"
-        android:text="Tuesday"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.642"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.491" />
-
-
-    ///////////////////////////////
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

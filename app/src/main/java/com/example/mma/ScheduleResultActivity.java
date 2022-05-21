@@ -1,30 +1,102 @@
 package com.example.mma;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-public class HomeActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class ScheduleResultActivity extends AppCompatActivity {
     private Toolbar toolbar;
+    TextView receive_day;
 
+    ///////////////////////////////////////////////////
+    ///temp data
+    String[][] arr = new String[0][0];
+
+    //array data for day selected
+    String[][] arrMonday = {
+            {"18", "KICKBOXING","Bob"},
+            {"19", "BOXING","John"},
+            {"20", "BJJ","Bill"}
+    };
+
+    String[][] arrTuesday = {
+            {"18", "KICKBOXING","Bob"},
+            {"19", "BJJ","Bill"},
+    };
+
+    ////////////////////////////////////////////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        Intent loginHomeIntent = getIntent();
+        setContentView(R.layout.activity_scheduleresult);
+        Intent scheduleResultIntent = getIntent();
         toolbar=findViewById(R.id.mmaToolBar);
         setSupportActionBar(toolbar);
-    }
 
+        ////SCHEDULE DAY INPUT
+        receive_day = (TextView)findViewById(R.id.textViewDay);
+        // Intent intent = getIntent();
+        String day = scheduleResultIntent.getStringExtra("Day");
+        receive_day.setText(day);
+
+        ////RECYCLER VIEW
+        RecyclerView RecyclerView;
+        ScheduleAdapter Adapter;
+        RecyclerView.LayoutManager LayoutManager;
+        ArrayList<ScheduleBlock> exampleList = new ArrayList<>();
+
+        //value selected from previous page
+        switch (day){
+            case "Monday":
+                arr = arrMonday;
+                break;
+            case "Tuesday":
+                arr = arrTuesday;
+                break;
+            default:
+        }
+
+        for(int i = 0; i<arr.length;i++) {
+            String time = arr[i][0];
+            String name = arr[i][1];
+            String trainer = arr[i][2];
+            String data = createScheduleBlock(time, name, trainer);
+            int pic = R.drawable.ic_boxing_small_red;
+
+            if(name.equals("KICKBOXING")){
+                pic = R.drawable.ic_kickboxing_small_red;
+            }
+            else if(name.equals("BOXING")){
+                pic = R.drawable.ic_boxing_small_red;
+            }
+            else if (name.equals("BJJ")){
+                pic = R.drawable.ic_bjj_small_red;
+            }
+
+            exampleList.add(new ScheduleBlock(pic, data));
+        }
+
+        Adapter = new ScheduleAdapter(exampleList);
+        RecyclerView = findViewById(R.id.recyclerView);
+        LayoutManager = new LinearLayoutManager(this);
+        RecyclerView.setLayoutManager(LayoutManager);
+        RecyclerView.setAdapter(Adapter);
+
+
+    }
     //////////////// TOP NAV BAR MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -47,7 +119,7 @@ public class HomeActivity extends AppCompatActivity {
                 clickMenuNavigate(ScheduleActivity.class);
                 return true;
 
-                case R.id.menuBookGroup:
+            case R.id.menuBookGroup:
                 Toast.makeText(this,"Book a group class!",Toast.LENGTH_SHORT).show();
                 clickMenuNavigate(GroupActivity.class);
                 return true;
@@ -89,53 +161,15 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void clickMenuNavigate(Class c){
-        Intent intent = new Intent(HomeActivity.this,c);
+        Intent intent = new Intent(ScheduleResultActivity.this,c);
         startActivity(intent);
     }
 
-
-
-    //////HOME PAGE ACTIVITY BUTTONS
-    public void clickSchedule(View view) {
-        Intent homeScheduleIntent = new Intent(HomeActivity.this, ScheduleActivity.class);
-        startActivity(homeScheduleIntent);
+    ///////////////////
+    public String createScheduleBlock(String time, String className, String trainer){
+        String space1 = "h\t\t\t";
+        String space2 = "\n\t\t\t\t\t\t\t-";
+        String value =time+space1+className+space2+trainer;
+        return value;
     }
-
-    public void clickGroup(View view) {
-        Intent homeGroupIntent = new Intent(HomeActivity.this, GroupActivity.class);
-        startActivity(homeGroupIntent);
-    }
-
-    public void clickPrivate(View view) {
-        Intent homePrivateIntent = new Intent(HomeActivity.this, PrivateActivity.class);
-        startActivity(homePrivateIntent);
-    }
-
-    public void clickAccount(View view) {
-        Intent homeAccountIntent = new Intent(HomeActivity.this, AccountActivity.class);
-        startActivity(homeAccountIntent);
-    }
-
-    public void clickAbout(View view) {
-        Intent homeAboutIntent = new Intent(HomeActivity.this, AboutActivity.class);
-        startActivity(homeAboutIntent);
-    }
-
-    public void clickContact(View view) {
-        Intent homeContactIntent = new Intent(HomeActivity.this, ContactActivity.class);
-        startActivity(homeContactIntent);
-    }
-
-    public void clickNews(View view) {
-        Intent homeNewsIntent = new Intent(HomeActivity.this, NewsActivity.class);
-        startActivity(homeNewsIntent);
-    }
-
-    public void clickTrainers(View view) {
-        Intent homeTrainersIntent = new Intent(HomeActivity.this, TrainersActivity.class);
-        startActivity(homeTrainersIntent);
-    }
-
-
-////
 }
