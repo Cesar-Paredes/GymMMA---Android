@@ -21,7 +21,7 @@ public class ScheduleResultActivity extends AppCompatActivity {
     private Toolbar toolbar;
     TextView receive_day;
 
-
+    ///////////////////////////////////////////////////
     ///temp data
     String[][] arr = new String[0][0];
 
@@ -37,18 +37,19 @@ public class ScheduleResultActivity extends AppCompatActivity {
             {"19", "BJJ","Bill"},
     };
 
+    ////////////////////////////////////////////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scheduleresult);
-        Intent intent = getIntent();
+        Intent scheduleResultIntent = getIntent();
         toolbar=findViewById(R.id.mmaToolBar);
         setSupportActionBar(toolbar);
 
         ////SCHEDULE DAY INPUT
         receive_day = (TextView)findViewById(R.id.textViewDay);
-       // Intent intent = getIntent();
-        String day = intent.getStringExtra("Day");
+        // Intent intent = getIntent();
+        String day = scheduleResultIntent.getStringExtra("Day");
         receive_day.setText(day);
 
         ////RECYCLER VIEW
@@ -96,7 +97,6 @@ public class ScheduleResultActivity extends AppCompatActivity {
 
 
     }
-
     //////////////// TOP NAV BAR MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -172,6 +172,4 @@ public class ScheduleResultActivity extends AppCompatActivity {
         String value =time+space1+className+space2+trainer;
         return value;
     }
-
-//
 }
