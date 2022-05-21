@@ -3,10 +3,12 @@ package com.example.mma;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,13 +18,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.regex.Pattern;
 
-
-//CESAR PAREDES - start////////
+//CESAR PAREDES ////////
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -47,13 +46,66 @@ public class RegisterActivity extends AppCompatActivity {
     String lastName;
     String email;
 
+    //this is for the dropdown
+    Spinner dropdown;
+    String[] items;
+    String selectedMembership; //membership selected by user
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        //database conection to firebase
         mAuth = FirebaseAuth.getInstance();
+
+        //dropdown//////////////////
+        dropdown = findViewById(R.id.membershipSpinner);
+
+        //list of items for the spinner
+        items = new String[]{"MEMBERSHIPS", "BJJ $30", "MUAY-THAI $30", "BOXING $30", "WRESTLING $30", "ALL ACCESS MMA $50"};
+
+        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
+        //There are multiple variations of this, but this is the basic variant.
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+
+        //set the spinners adapter to the previously created one.
+        dropdown.setAdapter(adapter);
+
+
+        //select the users choice in the dropdown
+        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                 selectedMembership = dropdown.getSelectedItem().toString();
+
+                 if(selectedMembership.equalsIgnoreCase("BJJ $30"))
+                     selectedMembership = "BJJ";
+                 else if(selectedMembership.equalsIgnoreCase("MUAY-THAI $30"))
+                     selectedMembership = "MUAY-THAI";
+                 else if(selectedMembership.equalsIgnoreCase("BOXING $30"))
+                     selectedMembership = "BOXING";
+                 else if(selectedMembership.equalsIgnoreCase("WRESTLING $30"))
+                     selectedMembership = "WRESTLING";
+                 else if(selectedMembership.equalsIgnoreCase("ALL ACCESS MMA $50"))
+                     selectedMembership = "MMA";
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+        /////////////////////////////////////////////////////////////////////////
+
+
 
 
 
@@ -90,6 +142,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
+                //VALIDATIONS FOR USER INPUT
                 //validates that every entry has a value
                 if(username.equalsIgnoreCase("")||password.equalsIgnoreCase("")||firstName.equalsIgnoreCase("")||lastName.equalsIgnoreCase("")||email.equalsIgnoreCase(""))
                     Toast.makeText(RegisterActivity.this, "Failed to register! Complete all entries!", Toast.LENGTH_LONG).show();
@@ -101,6 +154,8 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Failed to register! Name too small!", Toast.LENGTH_LONG).show();
                 else if(!email.contains("@") || !Patterns.EMAIL_ADDRESS.matcher(email).matches())
                     Toast.makeText(RegisterActivity.this, "Failed to register! Enter a valid email!", Toast.LENGTH_LONG).show();
+                else if(selectedMembership.equalsIgnoreCase("MEMBERSHIPS"))
+                    Toast.makeText(RegisterActivity.this, "Failed to register! Enter a valid membership!", Toast.LENGTH_LONG).show();
                 else
                     registerUser();
 
@@ -118,6 +173,7 @@ public class RegisterActivity extends AppCompatActivity {
     //THIS WILL REGISTER THE USER IN THE FIREBASE DATABASE
     private void registerUser(){
 
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
@@ -129,7 +185,7 @@ public class RegisterActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
 
                             //here i create a user object from the user java class i have created
-                            User user = new User(username, password, firstName, lastName, email);
+                            User user = new User(username, password, firstName, lastName, email, selectedMembership);
 
                             //we call the firebase database object
                             FirebaseDatabase.getInstance().getReference("Users")
@@ -150,6 +206,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         intent.putExtra("FIRSTNAME", firstName);
                                         intent.putExtra("LASTNAME", lastName);
                                         intent.putExtra("EMAIL", email);
+                                        intent.putExtra("MEMBERSHIP", selectedMembership);
 
                                         startActivity(intent);//starts the activity with intent
 

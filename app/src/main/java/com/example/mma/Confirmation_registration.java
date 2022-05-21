@@ -19,11 +19,13 @@ public class Confirmation_registration extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        //we receive the data from the register_activity and store it in String variables
         String username = intent.getStringExtra("USERNAME");
         String password = "******";
         String firstName = intent.getStringExtra("FIRSTNAME");
         String lastName = intent.getStringExtra("LASTNAME");
         String email = intent.getStringExtra("EMAIL");
+        String membership = intent.getStringExtra("MEMBERSHIP");
 
         //display the data
         TextView display = (TextView) findViewById(R.id.displayData);
@@ -35,7 +37,8 @@ public class Confirmation_registration extends AppCompatActivity {
                         "PASSWORD:   " + password  + "\n" +
                         "FIRST NAME: " + firstName   + "\n" +
                         "LAST NAME:  " + lastName  + "\n" +
-                        "EMAIL:            " + email+ "\n");
+                        "EMAIL:            " + email+ "\n" +
+                        "MEMBERSHIP: " + membership);
 
         //this will change the screen automatically after a certain time, it will go to home page
         int delay = 5000;
