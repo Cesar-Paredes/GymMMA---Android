@@ -14,16 +14,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class AboutActivity extends AppCompatActivity {
+    ///TOP TOOLBAR OBJ (MR)
     private Toolbar toolbar;
+
+
+    //////////////// ONCREATE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+
+        ///INTENT
         Intent loginHomeIntent = getIntent();
+
+        ///TOP TOOLBAR (MR)
         toolbar=findViewById(R.id.mmaToolBar);
         setSupportActionBar(toolbar);
     }
-    //////////////// TOP NAV BAR MENU
+
+    //////////////// TOP NAV BAR MENU (MR)
+    ///CREATE MENU (MR)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
@@ -31,6 +41,7 @@ public class AboutActivity extends AppCompatActivity {
         return true;
     }
 
+    ///SELECT ITEM FROM MENU - CASE TO REDIRECT TO PAGE (MR)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
@@ -85,14 +96,14 @@ public class AboutActivity extends AppCompatActivity {
         }
 
     }
-
+    ///METHOD USED FOR MENU SELECT INTENT REDIRECTION (MR)
     public void clickMenuNavigate(Class c){
         Intent intent = new Intent(AboutActivity.this,c);
         startActivity(intent);
     }
 
 
-    //////////////// IMPLICIT MAP BUTTON
+    //////////////// IMPLICIT MAP BUTTON (MR)
     public void clickMap(View view){
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(("https://goo.gl/maps/RRVFAd44smfRkCXQ6")));
         startActivity(intent);
