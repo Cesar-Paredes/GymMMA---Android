@@ -71,21 +71,27 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
 
         btn_insert.setOnClickListener(v->
         {
-            PrivateBooking pb = new PrivateBooking(
-                    textViewUsername.getText().toString(),
-                    dateTextDate.getText().toString(),
-                    dateTextClass.getText().toString(),
-                    editTextRequests.getText().toString()
-                    );
-            doa.add(pb).addOnSuccessListener(suc->
-            {
-                Toast.makeText(this,"booked",Toast.LENGTH_SHORT).show();
-            }).addOnFailureListener(er->{
-                Toast.makeText(this,"error",Toast.LENGTH_SHORT).show();
-            });
+                    if(dateTextClass.getText().toString().equals("-----------------------------------------------------")){
+                        Toast.makeText(this, "Please enter a valid class", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        PrivateBooking pb = new PrivateBooking(
+                                textViewUsername.getText().toString(),
+                                dateTextDate.getText().toString(),
+                                dateTextClass.getText().toString(),
+                                editTextRequests.getText().toString()
+                        );
+                        doa.add(pb).addOnSuccessListener(suc ->
+                        {
+                            Toast.makeText(this, "Booked", Toast.LENGTH_SHORT).show();
+                            Intent homePrivateIntent = new Intent(PrivateActivity.this, PrivateActivity.class);
+                            startActivity(homePrivateIntent);
 
+                        }).addOnFailureListener(er -> {
+                            Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
+                        });
+                    }
         });
-
     }
 
     //////////////// TOP NAV BAR MENU
