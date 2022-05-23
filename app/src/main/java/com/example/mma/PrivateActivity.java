@@ -72,7 +72,10 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
         btn_insert.setOnClickListener(v->
         {
                     if(dateTextClass.getText().toString().equals("-----------------------------------------------------")){
-                        Toast.makeText(this, "Please enter a valid class", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Please select a valid class", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(dateTextWeekday.getText().length()==0){
+                        Toast.makeText(this, "Please select a valid date", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         PrivateBooking pb = new PrivateBooking(
@@ -88,7 +91,7 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
                             startActivity(homePrivateIntent);
 
                         }).addOnFailureListener(er -> {
-                            Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
                         });
                     }
         });
@@ -173,6 +176,10 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
                 Calendar.getInstance().get(Calendar.MONTH),
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
         );
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()-1000);
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, 30);
+        datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
         datePickerDialog.show();
     }
 
