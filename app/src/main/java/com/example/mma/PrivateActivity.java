@@ -74,6 +74,12 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
                     if(dateTextClass.getText().toString().equals("-----------------------------------------------------")){
                         Toast.makeText(this, "Please select a valid class", Toast.LENGTH_SHORT).show();
                     }
+                    else if(dateTextClass.getText().toString().equals("----PICK A TIME-TRAINER-CLASS----")){
+                        Toast.makeText(this, "Please select a valid class", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(dateTextClass.getText().toString().equals("----NO CLASSES----")){
+                        Toast.makeText(this, "Please select a valid class", Toast.LENGTH_SHORT).show();
+                    }
                     else if(dateTextWeekday.getText().length()==0){
                         Toast.makeText(this, "Please select a valid date", Toast.LENGTH_SHORT).show();
                     }
