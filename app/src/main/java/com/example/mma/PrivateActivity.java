@@ -20,6 +20,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -37,6 +45,13 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
     private TextView textViewUsername;
     private EditText editTextRequests;
 
+
+    ///FIREBASE
+    String userEmail;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    FirebaseUser     currentUser;
+    String emailFromDatabase="";
 
     //////////////// ON CREATE
     @Override
@@ -101,6 +116,12 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
                         });
                     }
         });
+
+
+        ////FIREBASE GET EMAIL
+        getEmailCurrentUser();
+
+
     }
 
     //////////////// TOP NAV BAR MENU
@@ -241,7 +262,36 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
 
     }
 
+    ////FIREBASE READ EMAIL
+    public void getEmailCurrentUser(){
+        //current user
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        textViewUsername = (TextView) findViewById(R.id.textViewUsername);
 
+        //initialize the firebase database
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        //Gets the current user
+        databaseReference = firebaseDatabase.getReference("Users").child(currentUser.getUid());
+
+        //reference for our database, gets the current users value for membership
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    emailFromDatabase = String.valueOf(snapshot.child("email").getValue());
+                    textViewUsername.setText(emailFromDatabase);
+                }
+                else
+                    Toast.makeText(PrivateActivity.this,"no data!",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(PrivateActivity.this,"Error!",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 
 ///
 }
