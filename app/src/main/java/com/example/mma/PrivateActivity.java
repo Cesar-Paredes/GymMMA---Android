@@ -9,7 +9,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,29 +26,64 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class PrivateActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, AdapterView.OnItemSelectedListener{
+
+    ///TOOLBAR (MR)
     private Toolbar toolbar;
+
+    ///OBJ FOR DATE SELECTIONS
     private TextView dateTextDate;
     private TextView dateTextWeekday;
     private TextView dateTextClass;
+    private TextView textViewUsername;
+    private EditText editTextRequests;
 
 
+    //////////////// ON CREATE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_private);
+
+        ///INTENT (MR)
         Intent loginHomeIntent = getIntent();
+
+        ///TOOLBAR (MR)
         toolbar=findViewById(R.id.mmaToolBar);
         setSupportActionBar(toolbar);
 
+        ///DATE SELECTION (MR)
         dateTextDate = findViewById(R.id.dateTextDate);
         dateTextWeekday = findViewById(R.id.dateTextWeekday);
         dateTextClass = findViewById(R.id.dateTextClass);
+        textViewUsername = findViewById(R.id.textViewUsername);
+        editTextRequests = findViewById(R.id.editTextRequests);
 
         findViewById(R.id.dateDialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDatePickerDialog();
             }
+        });
+
+        ///FIREBASE INSERT
+        Button btn_insert = findViewById(R.id.buttonPrivateSubmit);
+        DOAPrivateBooking doa = new DOAPrivateBooking();
+
+        btn_insert.setOnClickListener(v->
+        {
+            PrivateBooking pb = new PrivateBooking(
+                    textViewUsername.getText().toString(),
+                    dateTextDate.getText().toString(),
+                    dateTextClass.getText().toString(),
+                    editTextRequests.getText().toString()
+                    );
+            doa.add(pb).addOnSuccessListener(suc->
+            {
+                Toast.makeText(this,"booked",Toast.LENGTH_SHORT).show();
+            }).addOnFailureListener(er->{
+                Toast.makeText(this,"error",Toast.LENGTH_SHORT).show();
+            });
+
         });
 
     }
