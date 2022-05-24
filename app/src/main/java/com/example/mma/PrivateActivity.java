@@ -273,7 +273,7 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
         //Gets the current user
         databaseReference = firebaseDatabase.getReference("Users").child(currentUser.getUid());
 
-        //reference for our database, gets the current users value for membership
+        //reference for our database, gets the current users value
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

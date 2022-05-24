@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +32,13 @@ public class PrivateBookingResultActivity extends AppCompatActivity {
     PrivateBookingAdapter myAdapter;
     ArrayList<PrivateBooking> list;
 
+    ///FIREBASE
+    String userEmail;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    FirebaseUser currentUser;
+    String emailFromDatabase="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,23 +47,25 @@ public class PrivateBookingResultActivity extends AppCompatActivity {
         toolbar=findViewById(R.id.mmaToolBar);
         setSupportActionBar(toolbar);
 
+        ////FIREBASE GET EMAIL
+        getEmailCurrentUser();
+
         ///FIREBASE -> RECYCLERVIEW
         recyclerView = findViewById(R.id.userList);
         database = FirebaseDatabase.getInstance().getReference("PrivateBooking");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         list = new ArrayList<>();
         myAdapter = new PrivateBookingAdapter(this,list);
         recyclerView.setAdapter(myAdapter);
-
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     PrivateBooking user = dataSnapshot.getValue(PrivateBooking.class);
-                    if(user.getUsername().equals("gsp@gmail.com")){
+
+                    if(user.getUsername().equals(userEmail)){
                         list.add(user);
                     }
                 }
@@ -134,8 +146,36 @@ public class PrivateBookingResultActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    ////FIREBASE READ EMAIL
+    public void getEmailCurrentUser(){
+        //current user
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        //textViewUsername = (TextView) findViewById(R.id.textViewUsername);
 
+        //initialize the firebase database
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        //Gets the current user
+        databaseReference = firebaseDatabase.getReference("Users").child(currentUser.getUid());
 
+        //reference for our database, gets the current users value
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    emailFromDatabase = String.valueOf(snapshot.child("email").getValue());
+                    userEmail=emailFromDatabase;
+                    //textViewUsername.setText(emailFromDatabase);
+                }
+                else
+                    Toast.makeText(PrivateBookingResultActivity.this,"no data!",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(PrivateBookingResultActivity.this,"Error!",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 
  ///
