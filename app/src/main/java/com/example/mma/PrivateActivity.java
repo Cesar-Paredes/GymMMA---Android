@@ -290,7 +290,12 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
                 Toast.makeText(PrivateActivity.this,"Error!",Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    ////VIEW BOOKINGS
+    public void viewBookings(View view){
+        Intent i = new Intent(PrivateActivity.this,PrivateBookingResultActivity.class);
+        startActivity(i);
     }
 
 ///
