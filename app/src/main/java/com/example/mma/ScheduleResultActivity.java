@@ -15,12 +15,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
 public class ScheduleResultActivity extends AppCompatActivity {
@@ -53,9 +47,6 @@ public class ScheduleResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scheduleresult);
 
-        /////////////////FIREBASE
-        DatabaseReference database;
-
         ///INTENT (MR)
         Intent scheduleResultIntent = getIntent();
 
@@ -74,7 +65,39 @@ public class ScheduleResultActivity extends AppCompatActivity {
         String day = scheduleResultIntent.getStringExtra("Day");
         receive_day.setText(day);
 
-        ///ADAPTER CREATION AND RECYCLER VIEW INPUT (MR)
+        ///SWITCH CASE BASED ON DAY SELECTED (MR)
+        switch (day){
+            case "Monday":
+                arr = arrMonday;
+                break;
+            case "Tuesday":
+                arr = arrTuesday;
+                break;
+            default:
+        }
+
+        ///LOOP TO GENERATE EACH BLOCK TO EXAMPLE LIST (MR)
+        for(int i = 0; i<arr.length;i++) {
+            String time = arr[i][0];
+            String name = arr[i][1];
+            String trainer = arr[i][2];
+            String data = createScheduleBlock(time, name, trainer);
+            int pic = R.drawable.ic_boxing_small_red;
+
+            if(name.equals("KICKBOXING")){
+                pic = R.drawable.ic_kickboxing_small_red;
+            }
+            else if(name.equals("BOXING")){
+                pic = R.drawable.ic_boxing_small_red;
+            }
+            else if (name.equals("BJJ")){
+                pic = R.drawable.ic_bjj_small_red;
+            }
+
+            exampleList.add(new ScheduleBlock(pic, data));
+        }
+
+        ///ADAPTER CREATION AND RECYCLER VIEW INPUT
         Adapter = new ScheduleAdapter(exampleList);
         RecyclerView = findViewById(R.id.recyclerView);
         LayoutManager = new LinearLayoutManager(this);
@@ -82,34 +105,7 @@ public class ScheduleResultActivity extends AppCompatActivity {
         RecyclerView.setAdapter(Adapter);
 
 
-        ///FIREBASE (MR)
-        database = FirebaseDatabase.getInstance().getReference("Schedule");
-        database.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    ScheduleBlock user = dataSnapshot.getValue(ScheduleBlock.class);
-                    exampleList.add(user);
-                }
-                Adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-
-
-        });
-
-
-
-
-
     }
-
-
     //////////////// TOP NAV BAR MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
