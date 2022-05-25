@@ -19,6 +19,9 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -42,6 +45,8 @@ public class AccountActivity extends AppCompatActivity {
     String email="";
     String membership="";
 
+    AuthCredential credentials;
+
 
 
     String updatedMembership ="";
@@ -51,6 +56,9 @@ public class AccountActivity extends AppCompatActivity {
     TextView usernameText;
     TextView passwordText;
     TextView emailText;
+
+    TextView newPassText;
+    String newPass;
 
 
     Spinner dropdown;
@@ -85,7 +93,7 @@ public class AccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                updateFields();
+                updatePasswordAuth();
 
             }
         });
@@ -145,10 +153,12 @@ public class AccountActivity extends AppCompatActivity {
 
 
 
+
+
                     //i put it here because this method onDataChange takes more time than others to execute
                     //so android would jump this whole onDataChange method to execute other methods below,
                     //and will execute it but executes last
-                    membershipToSpinner();//reads membership variable we got from database in the other method and store it in the spinner
+                    membershipToSpinner();//reads membership variable we got from database in the getAccountDetails() method and store it in the spinner
 
 
                 } else
@@ -213,29 +223,51 @@ public class AccountActivity extends AppCompatActivity {
     //updates the database with new user input, all fields are able to change except for email
     public void updateFields(){
 
+        Toast.makeText(AccountActivity.this,"updateFields!",Toast.LENGTH_SHORT).show();
+        //so here layout and String variables get updated, user will see updated data now
+
         //PASS TEXTVIEW FROM LAYOUT TO HERE
         firstnameText = (TextView) findViewById(R.id.firstNameText);
         lastnameText = (TextView) findViewById(R.id.lastNameText);
         usernameText = (TextView) findViewById(R.id.usernameText);
-        passwordText = (TextView) findViewById(R.id.passwordText);
         emailText = (TextView) findViewById(R.id.emailText);
+        passwordText = (TextView) findViewById(R.id.passwordText);
+        newPassText = (TextView) findViewById(R.id.passwordText2) ;
+
+
+
 
         //now we pass the TextViews to the our strings variables
         firstName = firstnameText.getText().toString().trim();
         lastName = lastnameText.getText().toString().trim();
         userName = usernameText.getText().toString().trim();
         password = passwordText.getText().toString().trim();
+        newPass = newPassText.getText().toString().trim();
+        email = emailText.getText().toString().trim();
+
+
+
+
 
 
 //        button2 = (Button) findViewById(R.id.button2);
 
+
+        //this is the updated info that will go to our database
         HashMap user = new HashMap();
 
         user.put("firstName", firstName);
         user.put("lastName", lastName);
         user.put("username", userName);
-        user.put("password", password);
         user.put("membership", membership);
+
+        if(newPass.equalsIgnoreCase("")||newPass.equalsIgnoreCase(null))
+            user.put("password", password);
+        else{
+            user.put("password", newPass);
+            Toast.makeText(AccountActivity.this,"newPass!",Toast.LENGTH_SHORT).show();
+        }
+
 
 
         //initialize the firebase database
@@ -250,10 +282,10 @@ public class AccountActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task task) {
 
                 if(task.isSuccessful()){
-                    Toast.makeText(AccountActivity.this,"Success!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AccountActivity.this,"Success4!",Toast.LENGTH_SHORT).show();
 
-                    //retrieve data from the just updated database and display new updated data in the app
-                    getAccountDetails();
+//                    updatePasswordAuth();
+
 
                 }
                 else
@@ -264,50 +296,55 @@ public class AccountActivity extends AppCompatActivity {
 
     }
 
+    public void updatePasswordAuth(){
+        Toast.makeText(AccountActivity.this,"auth1!",Toast.LENGTH_SHORT).show();
+
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        newPassText = (TextView) findViewById(R.id.passwordText2);
+        newPass = newPassText.getText().toString();
 
 
+        //we put the email with the old passs that we want to change
+        credentials = EmailAuthProvider.getCredential(email,password);
 
-    //spinner will set up the new updated membership
-    public void setUpdatedMembership() {
-        //dropdown//////////////////
-        dropdown = findViewById(R.id.membershipSpinnerAccount);
-
-        //list of items for the spinner
-        items = new String[]{"MEMBERSHIPS", "BJJ $30", "MUAY-THAI $30", "BOXING $30", "WRESTLING $30", "ALL ACCESS MMA $50"};
-        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-        //There are multiple variations of this, but this is the basic variant.
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-
-        //set the spinners adapter to the previously created one.
-        dropdown.setAdapter(adapter);
-
-
-        //select the users choice in the dropdown
-        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        currentUser.reauthenticate(credentials).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                updatedMembership = dropdown.getSelectedItem().toString();
+            public void onComplete(@NonNull Task<Void> task) {
+                Toast.makeText(AccountActivity.this,"auth2!",Toast.LENGTH_SHORT).show();
+                //if able to connect
+                if(task.isSuccessful()){
+                    Toast.makeText(AccountActivity.this,"auth oncomplete1",Toast.LENGTH_SHORT).show();
+                    currentUser.updatePassword(newPass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(AccountActivity.this,"auth oncomplete",Toast.LENGTH_SHORT).show();
+                            //if password is updated
+                            if (task.isSuccessful()){
 
-                if (updatedMembership.equalsIgnoreCase("BJJ $30"))
-                    updatedMembership = "BJJ";
-                else if (updatedMembership.equalsIgnoreCase("MUAY-THAI $30"))
-                    updatedMembership = "MUAY-THAI";
-                else if (updatedMembership.equalsIgnoreCase("BOXING $30"))
-                    updatedMembership = "BOXING";
-                else if (updatedMembership.equalsIgnoreCase("WRESTLING $30"))
-                    updatedMembership = "WRESTLING";
-                else if (updatedMembership.equalsIgnoreCase("ALL ACCESS MMA $50"))
-                    updatedMembership = "MMA";
+                                //the new password becomes the password;
+                                password = newPass;
+                                updateFields();
 
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
+                                //retrieve data from the just updated database and display new updated data in the app
+//                                getAccountDetails();
+                                Toast.makeText(AccountActivity.this,"Credentials Updated!",Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                                Toast.makeText(AccountActivity.this,"something went wrong!",Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else
+                    Toast.makeText(AccountActivity.this,"credentials not updated!",Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
+
+
+
 
 
 
