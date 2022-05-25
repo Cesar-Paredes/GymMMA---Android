@@ -41,7 +41,7 @@ public class Confirmation_registration extends AppCompatActivity {
                         "MEMBERSHIP: " + membership);
 
         //this will change the screen automatically after a certain time, it will go to home page
-        int delay = 5000;
+        int delay = 10000;
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

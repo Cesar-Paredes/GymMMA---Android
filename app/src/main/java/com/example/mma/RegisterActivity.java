@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
 
-    //EditTExt variables where im planning to store the buttons from layout to here
+    //EditTExt variables where im planning to store the editText layout these EditText variables
     EditText usernameBtn;
     EditText passwordBtn;
     EditText firstNameBtn;
@@ -39,7 +39,8 @@ public class RegisterActivity extends AppCompatActivity {
     Button registerBtn;
 
 
-    //this variable could be used to store the values on database
+    //this variable could be used to store the values on database, I will store the input values from user
+    // that are inside the EditText layouts into these variables
     String username;
     String password;
     String firstName;
@@ -49,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity {
     //this is for the dropdown
     Spinner dropdown;
     String[] items;
-    String selectedMembership; //membership selected by user
+    String selectedMembership; //membership selected by user for registration
 
 
 
@@ -103,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
 
-        /////////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -111,21 +112,21 @@ public class RegisterActivity extends AppCompatActivity {
 
         Intent loginHomeIntent = getIntent();
 
-        //store the buttons from layout to here
+        //store the EditText layouts from .xml to these EditText variables
         usernameBtn = (EditText) findViewById(R.id.editText_registerUsername);
         passwordBtn = (EditText) findViewById(R.id.editText_registerPassword);
         firstNameBtn = (EditText) findViewById(R.id.editText_registerFirstName);
         lastNameBtn = (EditText) findViewById(R.id.editText_registerLastName);
         emailBtn = (EditText) findViewById(R.id.editText_registerEmail);
 
-        //Stores the the register button
+        //Stores the the register button from .xml to this button
          registerBtn = (Button) findViewById(R.id.button_registerRegister);
 
 
 
         //when we click register it does 3 things, it display the confirmation screen to user
         //and register the user in the database
-        //and sends a confirmation email
+        //and sends a confirmation email(not done yet)
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,7 +149,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Failed to register! Complete all entries!", Toast.LENGTH_LONG).show();
                 else if(username.length()<3)
                     Toast.makeText(RegisterActivity.this, "Failed to register! Username too small!", Toast.LENGTH_LONG).show();
-                else if(password.length()<8)
+                else if(password.length()<7)
                     Toast.makeText(RegisterActivity.this, "Failed to register! Password too short, min 8 characters!", Toast.LENGTH_LONG).show();
                 else if(firstName.length()<2 || lastName.length()<2)
                     Toast.makeText(RegisterActivity.this, "Failed to register! Name too small!", Toast.LENGTH_LONG).show();
