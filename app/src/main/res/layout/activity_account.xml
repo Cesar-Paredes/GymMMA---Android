@@ -207,10 +207,10 @@
         android:text="UPDATE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/include"
-        app:layout_constraintVertical_bias="0.92" />
+        app:layout_constraintVertical_bias="0.886" />
 
     <Spinner
         android:id="@+id/membershipSpinnerAccount"
@@ -223,6 +223,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.749" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="149dp"
+        android:layout_height="48dp"
+        android:text="DELETE ACCOUNT"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="667dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
