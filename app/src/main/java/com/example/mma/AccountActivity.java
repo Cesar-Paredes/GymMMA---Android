@@ -34,7 +34,7 @@ import java.util.HashMap;
 
 
 
-//Cesar Paredes///////////////////////////////////////////////
+//CESAR PAREDES///////////////////////////////////////////////
 
 public class AccountActivity extends AppCompatActivity {
 
@@ -88,6 +88,7 @@ public class AccountActivity extends AppCompatActivity {
         getAccountDetails();
 
         Button update = (Button) findViewById(R.id.UpdateBtn);
+        Button delete = findViewById(R.id.deleteAccount);
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +96,14 @@ public class AccountActivity extends AppCompatActivity {
 
                 updatePasswordAuth();
 
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AccountActivity.this,DeleteAccount.class);
+                startActivity(intent);
             }
         });
 
@@ -308,40 +317,47 @@ public class AccountActivity extends AppCompatActivity {
         //we put the email with the old passs that we want to change
         credentials = EmailAuthProvider.getCredential(email,password);
 
-        currentUser.reauthenticate(credentials).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(AccountActivity.this,"auth2!",Toast.LENGTH_SHORT).show();
-                //if able to connect
-                if(task.isSuccessful()){
-                    Toast.makeText(AccountActivity.this,"auth oncomplete1",Toast.LENGTH_SHORT).show();
-                    currentUser.updatePassword(newPass).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(AccountActivity.this,"auth oncomplete",Toast.LENGTH_SHORT).show();
-                            //if password is updated
-                            if (task.isSuccessful()){
+        if(newPass.equalsIgnoreCase(null)||newPass.equalsIgnoreCase("")){
+            updateFields();
+        }
+        else
+        {
+            currentUser.reauthenticate(credentials).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    Toast.makeText(AccountActivity.this,"auth2!",Toast.LENGTH_SHORT).show();
+                    //if able to connect
+                    if(task.isSuccessful()){
+                        Toast.makeText(AccountActivity.this,"auth oncomplete1",Toast.LENGTH_SHORT).show();
+                        currentUser.updatePassword(newPass).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(AccountActivity.this,"auth oncomplete",Toast.LENGTH_SHORT).show();
+                                //if password is updated
+                                if (task.isSuccessful()){
 
-                                //the new password becomes the password;
-                                password = newPass;
-                                updateFields();
+                                    //the new password becomes the password;
+                                    password = newPass;
+                                    updateFields();
 
-                                //retrieve data from the just updated database and display new updated data in the app
+                                    //retrieve data from the just updated database and display new updated data in the app
 //                                getAccountDetails();
-                                Toast.makeText(AccountActivity.this,"Credentials Updated!",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AccountActivity.this,"Credentials Updated!",Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                    Toast.makeText(AccountActivity.this,"something went wrong!",Toast.LENGTH_SHORT).show();
                             }
-                            else
-                                Toast.makeText(AccountActivity.this,"something went wrong!",Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                        });
+                    }
+                    else
+                        Toast.makeText(AccountActivity.this,"credentials not updated!",Toast.LENGTH_SHORT).show();
                 }
-                else
-                    Toast.makeText(AccountActivity.this,"credentials not updated!",Toast.LENGTH_SHORT).show();
-            }
-        });
+            });
 
-
+        }
     }
+
+
 
 
 

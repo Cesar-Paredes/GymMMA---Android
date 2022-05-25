@@ -225,12 +225,16 @@
         app:layout_constraintVertical_bias="0.749" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/deleteAccount"
         android:layout_width="149dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
         android:text="DELETE ACCOUNT"
-        tools:layout_editor_absoluteX="115dp"
-        tools:layout_editor_absoluteY="667dp" />
+        android:background="@drawable/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

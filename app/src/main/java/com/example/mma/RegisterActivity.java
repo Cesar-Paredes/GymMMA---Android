@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-//CESAR PAREDES ////////
+//CESAR PAREDES /////////////////////////////////////////////////////////////////
 
 public class RegisterActivity extends AppCompatActivity {
 
