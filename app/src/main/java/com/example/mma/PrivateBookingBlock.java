@@ -1,14 +1,12 @@
 package com.example.mma;
 
-///CLASS REPRESENTS THE HOURLY BLOCK IN THE DAYS SCHEDULE (MR)
-public class ScheduleBlock {
-
+public class PrivateBookingBlock {
     //VARIABLES INSIDE BLOCK (MR)
     private int Image;
     private String Text;
 
     //CONSTRUCTOR FOR BLOCK (MR)
-    public ScheduleBlock(int image, String text){
+    public PrivateBookingBlock(int image, String text){
         Image = image;
         Text = text;
     }

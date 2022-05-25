@@ -11,6 +11,7 @@
         android:id="@+id/button_map"
         android:layout_width="356dp"
         android:layout_height="97dp"
+        android:onClick="clickMap"
         android:text="Find us!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,17 +51,18 @@
 
     <TextView
         android:id="@+id/textView_aboutInfo"
-        android:layout_width="379dp"
-        android:layout_height="133dp"
+        android:layout_width="362dp"
+        android:layout_height="285dp"
         android:text="
         Welcome to MMA GYM! We specialize in multiple Mixed Martial Arts for every level of students. Customer satisfaction is a high priority for us, and we strive to achieve this through the best coaches and interaction. Our application will help you interact with the gym efficiently by either booking a group class and or a private lesson all in one location. Enjoy the application, and we hope to see you soon!
         "
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.375" />
+        app:layout_constraintVertical_bias="0.565" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

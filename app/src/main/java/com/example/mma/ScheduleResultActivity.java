@@ -18,14 +18,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class ScheduleResultActivity extends AppCompatActivity {
+    ///TOOLBAR OBJ (MR)
     private Toolbar toolbar;
+
+    ///TEXTVIEW OBJ TO HOLD RECEIVED DAY FROM SCHEDULE ACTIVITY (MR)
     TextView receive_day;
 
-    ///////////////////////////////////////////////////
-    ///temp data
+   ///GLOBAL ARRAY TO HOLD DAY DATA ONCE FOUND (MR)
     String[][] arr = new String[0][0];
 
-    //array data for day selected
+    ///TEMP DATA (MR)
     String[][] arrMonday = {
             {"18", "KICKBOXING","Bob"},
             {"19", "BOXING","John"},
@@ -38,27 +40,32 @@ public class ScheduleResultActivity extends AppCompatActivity {
     };
 
     ////////////////////////////////////////////////////
+
+    ///ON CREATE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scheduleresult);
+
+        ///INTENT (MR)
         Intent scheduleResultIntent = getIntent();
+
+        //TOOLBAR (MR)
         toolbar=findViewById(R.id.mmaToolBar);
         setSupportActionBar(toolbar);
 
-        ////SCHEDULE DAY INPUT
-        receive_day = (TextView)findViewById(R.id.textViewDay);
-        // Intent intent = getIntent();
-        String day = scheduleResultIntent.getStringExtra("Day");
-        receive_day.setText(day);
-
-        ////RECYCLER VIEW
+        ///RECYCLER VIEW (MR)
         RecyclerView RecyclerView;
         ScheduleAdapter Adapter;
         RecyclerView.LayoutManager LayoutManager;
         ArrayList<ScheduleBlock> exampleList = new ArrayList<>();
 
-        //value selected from previous page
+        ///SCHEDULE DAY FROM SCHEDULE ACTIVITY (MR)
+        receive_day = (TextView)findViewById(R.id.textViewDay);
+        String day = scheduleResultIntent.getStringExtra("Day");
+        receive_day.setText(day);
+
+        ///SWITCH CASE BASED ON DAY SELECTED (MR)
         switch (day){
             case "Monday":
                 arr = arrMonday;
@@ -69,6 +76,7 @@ public class ScheduleResultActivity extends AppCompatActivity {
             default:
         }
 
+        ///LOOP TO GENERATE EACH BLOCK TO EXAMPLE LIST (MR)
         for(int i = 0; i<arr.length;i++) {
             String time = arr[i][0];
             String name = arr[i][1];
@@ -89,6 +97,7 @@ public class ScheduleResultActivity extends AppCompatActivity {
             exampleList.add(new ScheduleBlock(pic, data));
         }
 
+        ///ADAPTER CREATION AND RECYCLER VIEW INPUT
         Adapter = new ScheduleAdapter(exampleList);
         RecyclerView = findViewById(R.id.recyclerView);
         LayoutManager = new LinearLayoutManager(this);
