@@ -11,6 +11,7 @@
         android:id="@+id/button_map"
         android:layout_width="356dp"
         android:layout_height="97dp"
+        android:onClick="clickMap"
         android:text="Find us!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
