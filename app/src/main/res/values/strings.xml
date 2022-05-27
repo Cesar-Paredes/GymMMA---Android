@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MMA</string>
 
-    /////PRIVATE CLASSES ARRAY DATA
+    /////PRIVATE CLASSES ARRAY DATA (MR)
     <string-array name="privateNoClasses">
         <item>----NO CLASSES----</item>
     </string-array>

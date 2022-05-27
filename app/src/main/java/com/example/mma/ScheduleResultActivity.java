@@ -27,17 +27,17 @@ public class ScheduleResultActivity extends AppCompatActivity {
    ///GLOBAL ARRAY TO HOLD DAY DATA ONCE FOUND (MR)
     String[][] arr = new String[0][0];
 
-    ///TEMP DATA (MR)
-    String[][] arrMonday = {
-            {"18", "KICKBOXING","Bob"},
-            {"19", "BOXING","John"},
-            {"20", "BJJ","Bill"}
-    };
-
-    String[][] arrTuesday = {
-            {"18", "KICKBOXING","Bob"},
-            {"19", "BJJ","Bill"},
-    };
+//    ///TEMP DATA (MR)
+//    String[][] arrMonday = {
+//            {"18", "KICKBOXING","Bob"},
+//            {"19", "BOXING","John"},
+//            {"20", "BJJ","Bill"}
+//    };
+//
+//    String[][] arrTuesday = {
+//            {"18", "KICKBOXING","Bob"},
+//            {"19", "BJJ","Bill"},
+//    };
 
     ////////////////////////////////////////////////////
 
@@ -68,10 +68,10 @@ public class ScheduleResultActivity extends AppCompatActivity {
         ///SWITCH CASE BASED ON DAY SELECTED (MR)
         switch (day){
             case "Monday":
-                arr = arrMonday;
+                arr = Schedule.arrMonday;
                 break;
             case "Tuesday":
-                arr = arrTuesday;
+                arr = Schedule.arrTuesday;
                 break;
             default:
         }
