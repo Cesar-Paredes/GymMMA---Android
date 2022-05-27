@@ -5,19 +5,8 @@
       <map>
         <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.152" />
         <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_about.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_account.xml" value="0.33" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_home.xml" value="0.633245382585752" />
+        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_home.xml" value="0.7366375121477162" />
         <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_private.xml" value="0.33" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_privatebooking.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_privatebookings.xml" value="0.25" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_registration.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_schedule.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_scheduleresult.xml" value="0.25" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/activity_trainers.xml" value="0.3416666666666667" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/private_block.xml" value="0.1" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/privatebooking_block.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/schedule_block.xml" value="0.34814814814814815" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_baseline_fact_check_24.xml" value="0.233" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_trainers_large.xml" value="0.2435" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_trainers_large_red.xml" value="0.2435" />
@@ -25,6 +14,7 @@
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_account.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_confirmation_registration.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_contact.xml" value="0.278125" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_delete_account.xml" value="0.264" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_group.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_home.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_main.xml" value="0.264" />
@@ -34,7 +24,10 @@
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_registration_confirmation.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_schedule.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_trainers.xml" value="0.39166666666666666" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/appbar.xml" value="0.16574074074074074" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/schedule_block.xml" value="0.3605072463768116" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/menu/menu.xml" value="0.17057291666666666" />
+        <entry key="..\:/Users/cesar/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.3745471014492754" />
       </map>
     </option>
   </component>

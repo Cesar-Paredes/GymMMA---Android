@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MMA">
         <activity
+            android:name=".DeleteAccount"
+            android:exported="false" />
+        <activity
             android:name=".Confirmation_registration"
             android:exported="false"
-            android:parentActivityName=".RegisterActivity"
-            />
+            android:parentActivityName=".RegisterActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -79,9 +81,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
-
         <activity
             android:name=".AccountActivity"
             android:exported="true">
