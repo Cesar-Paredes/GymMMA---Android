@@ -4,24 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_blank_short"
-    android:onClick="clickMap">
+    android:background="@drawable/background_blank_short">
 
-    <Button
-        android:id="@+id/button_map"
-        android:layout_width="356dp"
-        android:layout_height="97dp"
-        android:onClick="clickMap"
-        android:text="Find us!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.949" />
-
+    <!--APP BAR (MR)-->
     <include layout="@layout/appbar" />
 
+    <!--PAGE HEADER TEXT+IMG (MR)-->
     <TextView
         android:id="@+id/textView_trainersHeader"
         android:layout_width="wrap_content"
@@ -49,6 +37,7 @@
         app:layout_constraintVertical_bias="0.087"
         app:srcCompat="@drawable/ic_question_large_red" />
 
+    <!--COMPANY/APP DETAILS (MR)-->
     <TextView
         android:id="@+id/textView_aboutInfo"
         android:layout_width="362dp"
@@ -64,5 +53,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.565" />
 
+    <!--FIND US BUTTON (MR)-->
+    <Button
+        android:id="@+id/button_map"
+        android:layout_width="356dp"
+        android:layout_height="97dp"
+        android:onClick="clickMap"
+        android:text="Find us!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.949" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,10 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background_blank_short">
 
+    <!--APP BAR (MR)-->
     <include
         layout="@layout/appbar" />
 
-
+    <!--PAGE HEADER TEXT+IMG (MR)-->
     <ImageView
         android:id="@+id/imageView_contactHeader"
         android:layout_width="wrap_content"
@@ -36,6 +37,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.218" />
 
+    <!--CONTACT MSG (MR)-->
     <EditText
         android:id="@+id/editText_contactMessage"
         android:layout_width="341dp"
@@ -45,7 +47,6 @@
         android:hint="Write message here"
         android:inputType="textMultiLine"
         android:lines="10"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -53,6 +54,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.682" />
 
+    <!--SEND BUTTON (MR)-->
     <Button
         android:id="@+id/button_contactSend"
         android:layout_width="268dp"

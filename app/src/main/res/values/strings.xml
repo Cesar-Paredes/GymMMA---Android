@@ -8,25 +8,50 @@
 
     <string-array name="privateMonday">
         <item>----PICK A TIME-TRAINER-CLASS----</item>
-        <item>6PM - BOB  - BOXING       - $40</item>
-        <item>6PM - JOHN - KICKBOXING   - $50</item>
-        <item>6PM - BILL - BJJ          - $40</item>
+        <item>20h - BOB - BOXING       - $40</item>
+        <item>20h - ROB - KICKBOXING   - $50</item>
         <item>-----------------------------------------------------</item>
-        <item>7PM - BOB  - BOXING       - $40</item>
-        <item>7PM - JOHN - KICKBOXING   - $50</item>
-        <item>7PM - BILL - BJJ          - $40</item>
+        <item>21h - BOB - BOXING       - $40</item>
+        <item>21h - ROB - KICKBOXING   - $50</item>
     </string-array>
 
     <string-array name="privateTuesday">
         <item>----PICK A TIME-TRAINER-CLASS----</item>
-        <item>6PM - BOB  - BOXING       - $40</item>
-        <item>6PM - JOHN - KICKBOXING   - $50</item>
+        <item>20h - BOB - BOXING       - $40</item>
+        <item>20h - ROB - KICKBOXING   - $50</item>
         <item>-----------------------------------------------------</item>
-        <item>7PM - BOB  - BOXING       - $40</item>
-        <item>7PM - JOHN - KICKBOXING   - $50</item>
-        <item>7PM - BILL - BJJ          - $40</item>
-        <item>-----------------------------------------------------</item>
-        <item>8PM - BOB  - BOXING       - $40</item>
+        <item>21h - BOB - BOXING       - $40</item>
+        <item>21h - ROB - KICKBOXING   - $50</item>
     </string-array>
 
+    <string-array name="privateWednesday">
+        <item>----PICK A TIME-TRAINER-CLASS----</item>
+        <item>20h - BOB - BOXING       - $40</item>
+        <item>20h - ROB - KICKBOXING   - $50</item>
+        <item>-----------------------------------------------------</item>
+        <item>21h - BOB - BOXING       - $40</item>
+        <item>21h - ROB - KICKBOXING   - $50</item>
+    </string-array>
+
+    <string-array name="privateThursday">
+        <item>----PICK A TIME-TRAINER-CLASS----</item>
+        <item>20h - BOB - BOXING       - $40</item>
+        <item>20h - ROB - KICKBOXING   - $50</item>
+        <item>20h - WILL- BJJ          - $50</item>
+        <item>-----------------------------------------------------</item>
+        <item>21h - BOB - BOXING       - $40</item>
+        <item>21h - ROB - KICKBOXING   - $50</item>
+        <item>21h - WILL- BJJ          - $50</item>
+    </string-array>
+
+    <string-array name="privateFriday">
+        <item>----PICK A TIME-TRAINER-CLASS----</item>
+        <item>20h - BOB - BOXING       - $40</item>
+        <item>20h - ROB - KICKBOXING   - $50</item>
+        <item>20h - WILL- BJJ          - $50</item>
+        <item>-----------------------------------------------------</item>
+        <item>21h - BOB - BOXING       - $40</item>
+        <item>21h - ROB - KICKBOXING   - $50</item>
+        <item>21h - WILL- BJJ          - $50</item>
+    </string-array>
 </resources>
