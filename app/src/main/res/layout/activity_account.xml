@@ -9,8 +9,7 @@
     <include
         android:id="@+id/include"
         layout="@layout/appbar"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+         />
 
     <ImageView
         android:id="@+id/imageView_trainersHeader"

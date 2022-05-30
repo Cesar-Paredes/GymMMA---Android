@@ -56,7 +56,13 @@ public class MainActivity extends AppCompatActivity {
                 password = passwordBtn.getText().toString();
                 email = emailBtn.getText().toString().trim();
 
-                credentials();
+                if(email.equalsIgnoreCase(null) || email.equalsIgnoreCase("") || password.equalsIgnoreCase(null) || password.equalsIgnoreCase(""))
+                    Toast.makeText(MainActivity.this, "Try again!", Toast.LENGTH_LONG).show();
+
+                else
+                    credentials();
+
+
             }
         });
     }

@@ -38,6 +38,8 @@ import java.util.HashMap;
 
 public class AccountActivity extends AppCompatActivity {
 
+
+
     String firstName="";
     String lastName="";
     String userName="";
@@ -291,7 +293,7 @@ public class AccountActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task task) {
 
                 if(task.isSuccessful()){
-                    Toast.makeText(AccountActivity.this,"Success4!",Toast.LENGTH_SHORT).show();
+
 
 //                    updatePasswordAuth();
 
@@ -306,7 +308,6 @@ public class AccountActivity extends AppCompatActivity {
     }
 
     public void updatePasswordAuth(){
-        Toast.makeText(AccountActivity.this,"auth1!",Toast.LENGTH_SHORT).show();
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -325,14 +326,14 @@ public class AccountActivity extends AppCompatActivity {
             currentUser.reauthenticate(credentials).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
-                    Toast.makeText(AccountActivity.this,"auth2!",Toast.LENGTH_SHORT).show();
+
                     //if able to connect
                     if(task.isSuccessful()){
-                        Toast.makeText(AccountActivity.this,"auth oncomplete1",Toast.LENGTH_SHORT).show();
+
                         currentUser.updatePassword(newPass).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                Toast.makeText(AccountActivity.this,"auth oncomplete",Toast.LENGTH_SHORT).show();
+
                                 //if password is updated
                                 if (task.isSuccessful()){
 
@@ -431,8 +432,8 @@ public class AccountActivity extends AppCompatActivity {
     }
 
     public void clickMenuNavigate(Class c){
-        Intent intent = new Intent(AccountActivity.this,c);
-        startActivity(intent);
+        Intent intent2 = new Intent(AccountActivity.this,c);
+        startActivity(intent2);
     }
 
 
