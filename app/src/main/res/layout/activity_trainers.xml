@@ -195,7 +195,7 @@
             android:layout_width="200dp"
             android:layout_height="75dp"
             android:layout_gravity="center_horizontal"
-            android:text="\n - 15 years experience\n - Specializes in BJJ\n - Works Thursday to Sunday"
+            android:text="\n - 15 years experience\n - Specializes in BJJ, Wrestling\n - Works Thursday to Sunday"
             android:textSize="15dp" />
 
 
