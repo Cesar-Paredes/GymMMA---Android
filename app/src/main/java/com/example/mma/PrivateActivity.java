@@ -1,7 +1,10 @@
 package com.example.mma;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +22,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,7 +43,7 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
     ///TOOLBAR (MR)
     private Toolbar toolbar;
 
-    ///OBJ FOR DATE SELECTIONS
+    ///OBJ FOR DATE SELECTIONS (MR)
     private TextView dateTextDate;
     private TextView dateTextWeekday;
     private TextView dateTextClass;
@@ -46,7 +51,7 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
     private EditText editTextRequests;
 
 
-    ///FIREBASE
+    ///FIREBASE (MR)
     String userEmail;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -80,7 +85,15 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
             }
         });
 
-        ///FIREBASE INSERT
+        ///NOTIFICATION MANAGER (MR)
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("pb","pb", NotificationManager.IMPORTANCE_HIGH);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+
+        ///FIREBASE INSERT (MR)
         Button btn_insert = findViewById(R.id.buttonPrivateSubmit);
         DOAPrivateBooking doa = new DOAPrivateBooking();
 
@@ -115,6 +128,17 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
                             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
                         });
                     }
+
+                    ////NOTIFICATION (MR)
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(PrivateActivity.this,"pb");
+                    builder.setContentTitle("Private Lesson Booked!");
+                    builder.setContentText(dateTextDate.getText().toString()+ " - "+ dateTextClass.getText().toString());
+                    builder.setSmallIcon(R.drawable.ic_private_small_red);
+                    builder.setAutoCancel(true);
+
+                    NotificationManagerCompat managerCompat = NotificationManagerCompat.from(PrivateActivity.this);
+                    managerCompat.notify(1,builder.build());
+
         });
 
 
@@ -194,7 +218,7 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
 
 
 
-    //////////////// DATE PICKER
+    //////////////// DATE PICKER (MR)
     private void showDatePickerDialog(){
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 this,
@@ -292,11 +316,10 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
         });
     }
 
-    ////VIEW BOOKINGS
+    ////VIEW BOOKINGS (MR)
     public void viewBookings(View view){
         Intent i = new Intent(PrivateActivity.this,PrivateBookingResultActivity.class);
         startActivity(i);
     }
-
 ///
 }

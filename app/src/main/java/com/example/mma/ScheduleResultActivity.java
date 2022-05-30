@@ -27,18 +27,6 @@ public class ScheduleResultActivity extends AppCompatActivity {
    ///GLOBAL ARRAY TO HOLD DAY DATA ONCE FOUND (MR)
     String[][] arr = new String[0][0];
 
-    ///TEMP DATA (MR)
-    String[][] arrMonday = {
-            {"18", "KICKBOXING","Bob"},
-            {"19", "BOXING","John"},
-            {"20", "BJJ","Bill"}
-    };
-
-    String[][] arrTuesday = {
-            {"18", "KICKBOXING","Bob"},
-            {"19", "BJJ","Bill"},
-    };
-
     ////////////////////////////////////////////////////
 
     ///ON CREATE
@@ -68,10 +56,25 @@ public class ScheduleResultActivity extends AppCompatActivity {
         ///SWITCH CASE BASED ON DAY SELECTED (MR)
         switch (day){
             case "Monday":
-                arr = arrMonday;
+                arr = Schedule.arrMonday;
                 break;
             case "Tuesday":
-                arr = arrTuesday;
+                arr = Schedule.arrTuesday;
+                break;
+            case "Wednesday":
+                arr = Schedule.arrWednesday;
+                break;
+            case "Thursday":
+                arr = Schedule.arrThursday;
+                break;
+            case "Friday":
+                arr = Schedule.arrFriday;
+                break;
+            case "Saturday":
+                arr = Schedule.arrSaturday;
+                break;
+            case "Sunday":
+                arr = Schedule.arrSunday;
                 break;
             default:
         }
@@ -84,16 +87,19 @@ public class ScheduleResultActivity extends AppCompatActivity {
             String data = createScheduleBlock(time, name, trainer);
             int pic = R.drawable.ic_boxing_small_red;
 
-            if(name.equals("KICKBOXING")){
-                pic = R.drawable.ic_kickboxing_small_red;
+            switch(name){
+                case("BOXING"):
+                    pic = R.drawable.ic_boxing_small_red;
+                    break;
+                case("KICKBOXING"):
+                    pic = R.drawable.ic_kickboxing_small_red;
+                    break;
+                case("BJJ"):
+                    pic = R.drawable.ic_bjj_small_red;
+                    break;
+                default:
+                    pic = R.drawable.ic_private_small_red;
             }
-            else if(name.equals("BOXING")){
-                pic = R.drawable.ic_boxing_small_red;
-            }
-            else if (name.equals("BJJ")){
-                pic = R.drawable.ic_bjj_small_red;
-            }
-
             exampleList.add(new ScheduleBlock(pic, data));
         }
 

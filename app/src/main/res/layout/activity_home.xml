@@ -7,10 +7,11 @@
     android:background="@drawable/background_blank_short"
     tools:context=".HomeActivity"
 >
-
+    <!--APP BAR (MR)-->
     <include
         layout="@layout/appbar" />
 
+    <!--MAIN GRID (MR)-->
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/myGrid_home"
         android:layout_width="392dp"
@@ -29,12 +30,10 @@
             android:backgroundTint="#FF00"
             android:drawableBottom="@drawable/ic_schedule_large"
             android:onClick="clickSchedule"
-
             android:text="Schedule"
             app:layout_column="0"
             app:layout_columnWeight="1"
             app:layout_row="0"
-
             app:layout_rowWeight="0" />
 
         <Button
@@ -44,13 +43,11 @@
             android:backgroundTint="#FF00"
             android:drawableBottom="@drawable/ic_group_large"
             android:onClick="clickGroup"
-
-            android:text="Book Group"
+            android:text="Group Classes"
             app:layout_column="1"
             app:layout_columnWeight="1"
             app:layout_row="0"
             app:layout_rowWeight="0" />
-
 
         <Button
             android:id="@+id/button_homePrivate"
@@ -59,8 +56,7 @@
             android:backgroundTint="#FF00"
             android:drawableBottom="@drawable/ic_private_large"
             android:onClick="clickPrivate"
-
-            android:text="Book Private"
+            android:text="Private Lessons"
             app:layout_column="0"
             app:layout_columnWeight="1"
             app:layout_row="1"
@@ -73,7 +69,6 @@
             android:backgroundTint="#FF00"
             android:drawableBottom="@drawable/ic_account_large"
             android:onClick="clickAccount"
-
             android:text="Account"
             app:layout_column="1"
             app:layout_columnWeight="1"
@@ -87,7 +82,6 @@
             android:backgroundTint="#FF00"
             android:drawableBottom="@drawable/ic_question_large"
             android:onClick="clickAbout"
-
             android:text="About"
             app:layout_column="0"
             app:layout_columnWeight="1"
@@ -101,13 +95,11 @@
             android:backgroundTint="#FF00"
             android:drawableBottom="@drawable/ic_email_large"
             android:onClick="clickContact"
-
             android:text="Contact"
             app:layout_column="1"
             app:layout_columnWeight="1"
             app:layout_row="2"
             app:layout_rowWeight="0" />
-
 
         <Button
             android:id="@+id/button_homeNews"
@@ -116,13 +108,11 @@
             android:backgroundTint="#FF00"
             android:drawableBottom="@drawable/ic_news_large"
             android:onClick="clickNews"
-
             android:text="MMA News"
             app:layout_column="0"
             app:layout_columnWeight="1"
             app:layout_row="3"
             app:layout_rowWeight="0" />
-
 
         <Button
             android:id="@+id/button_homeTrainers"
@@ -131,7 +121,6 @@
             android:backgroundTint="#FF00"
             android:drawableBottom="@drawable/ic_trainers_large"
             android:onClick="clickTrainers"
-
             android:text="Our Trainers"
             app:layout_column="1"
             app:layout_columnWeight="1"
@@ -139,7 +128,6 @@
             app:layout_rowWeight="0" />
 
     </androidx.gridlayout.widget.GridLayout>
-
 
 </RelativeLayout>
 

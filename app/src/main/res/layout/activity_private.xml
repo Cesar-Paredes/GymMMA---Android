@@ -6,10 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background_blank_short">
 
+    <!--APP BAR (MR)-->
     <include
         layout="@layout/appbar" />
 
-
+    <!--PAGE HEADER TEXT+IMG (MR)-->
     <ImageView
         android:id="@+id/imageView_privateHeader"
         android:layout_width="wrap_content"
@@ -36,6 +37,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.218" />
 
+    <!--PAGE INSTRUCTIONS (MR)-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="377dp"
+        android:layout_height="57dp"
+        android:text="Please select the date, class and enter any specific requests you want to go over with your trainer before submitting. Enjoy!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <!--PICK DATE (MR)-->
     <Button
         android:id="@+id/dateDialog"
         android:layout_width="387dp"
@@ -48,6 +63,65 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.411" />
 
+    <!--DATE OUTPUT BOX (MR)-->
+    <TextView
+        android:id="@+id/dateTextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="21sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.486" />
+
+    <!--DAY OUTPUT BOX (MR)-->
+    <TextView
+        android:id="@+id/dateTextWeekday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="21sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.487" />
+
+    <!--LESSON SPINNER (MR)-->
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="382dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.543" />
+
+    <!--LESSON HOLDING BOX HIDDEN (MR)-->
+    <TextView
+        android:id="@+id/dateTextClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLASS - TRAINER"
+        android:textColor="#000"
+        android:textSize="21sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.139" />
+
+    <!--SPECIFIC REQUESTS (MR)-->
     <EditText
         android:id="@+id/editTextRequests"
         android:layout_width="382dp"
@@ -63,86 +137,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.717" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="382dp"
-        android:layout_height="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543" />
-
-    <Button
-        android:id="@+id/buttonPrivateSubmit"
-        android:layout_width="387dp"
-        android:layout_height="63dp"
-        android:text="Submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.856" />
-
-    <TextView
-        android:id="@+id/dateTextDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000"
-
-        android:textSize="21sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.686"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486" />
-
-    <TextView
-        android:id="@+id/dateTextClass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CLASS - TRAINER"
-        android:textColor="#000"
-
-        android:textSize="21sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.139" />
-
-    <TextView
-        android:id="@+id/dateTextWeekday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000"
-
-        android:textSize="21sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.296"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="377dp"
-        android:layout_height="57dp"
-        android:text="Please select the date, class and enter any specific requests you want to go over with your trainer before submitting. Enjoy!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.333" />
-
+    <!--USERNAME HIDDEN (MR)-->
     <TextView
         android:id="@+id/textViewUsername"
         android:layout_width="wrap_content"
@@ -156,6 +151,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.078" />
 
+    <!--SUBMIT BUTTON (MR)-->
+    <Button
+        android:id="@+id/buttonPrivateSubmit"
+        android:layout_width="387dp"
+        android:layout_height="63dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.856" />
+
+    <!--OPEN BOOKING BUTTON (MR)-->
     <Button
         android:id="@+id/buttonPBRead"
         android:layout_width="384dp"

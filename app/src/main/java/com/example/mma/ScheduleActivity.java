@@ -23,7 +23,7 @@ public class ScheduleActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-    //////////////// TOP NAV BAR MENU
+    //////////////// TOP NAV BAR MENU (MR)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=getMenuInflater();
@@ -91,18 +91,50 @@ public class ScheduleActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    ///////////////////
+    /////////////////// DAY BUTTONS (MR)
 
     public void clickMonday(View view) {
         Intent intent = new Intent(ScheduleActivity.this, ScheduleResultActivity.class);
         intent.putExtra("Day","Monday");
         startActivity(intent);
     }
+
     public void clickTuesday(View view) {
         Intent intent = new Intent(ScheduleActivity.this, ScheduleResultActivity.class);
         intent.putExtra("Day","Tuesday");
         startActivity(intent);
     }
+
+    public void clickWednesday(View view) {
+        Intent intent = new Intent(ScheduleActivity.this, ScheduleResultActivity.class);
+        intent.putExtra("Day","Wednesday");
+        startActivity(intent);
+    }
+
+    public void clickThursday(View view) {
+        Intent intent = new Intent(ScheduleActivity.this, ScheduleResultActivity.class);
+        intent.putExtra("Day","Thursday");
+        startActivity(intent);
+    }
+
+    public void clickFriday(View view) {
+        Intent intent = new Intent(ScheduleActivity.this, ScheduleResultActivity.class);
+        intent.putExtra("Day","Friday");
+        startActivity(intent);
+    }
+
+    public void clickSaturday(View view) {
+        Intent intent = new Intent(ScheduleActivity.this, ScheduleResultActivity.class);
+        intent.putExtra("Day","Saturday");
+        startActivity(intent);
+    }
+
+    public void clickSunday(View view) {
+        Intent intent = new Intent(ScheduleActivity.this, ScheduleResultActivity.class);
+        intent.putExtra("Day","Sunday");
+        startActivity(intent);
+    }
+
 
 //
 }
