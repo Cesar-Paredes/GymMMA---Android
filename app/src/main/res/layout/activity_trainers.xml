@@ -8,6 +8,7 @@
 
     <!--APP BAR (MR)-->
     <include
+        android:id="@+id/appPB"
         layout="@layout/appbar" />
 
     <!--PAGE HEADER TEXT+IMG (MR)-->
