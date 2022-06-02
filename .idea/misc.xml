@@ -23,6 +23,12 @@
         <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/privatebooking_block.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/M/AndroidStudioProjects/MMA/app/src/main/res/layout/schedule_block.xml" value="0.34814814814814815" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_baseline_fact_check_24.xml" value="0.233" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_baseline_sports_martial_arts_24.xml" value="0.15" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_baseline_sports_mma_24.xml" value="0.15" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_bjj_small_red.xml" value="0.15" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_boxing_small_red.xml" value="0.15" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_kickboxing_small_red.xml" value="0.1485" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_question_small_red.xml" value="0.15" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_trainers_large.xml" value="0.2435" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/drawable/ic_trainers_large_red.xml" value="0.2435" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_about.xml" value="0.278125" />
@@ -38,6 +44,11 @@
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_registration_confirmation.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_schedule.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_trainers.xml" value="0.39166666666666666" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/fragment_b_j_j_schedule.xml" value="0.264" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/fragment_boxing.xml" value="0.264" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/fragment_m_m_a.xml" value="0.264" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/fragment_muay_thai.xml" value="0.26132246376811596" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/fragment_wrestling.xml" value="0.23550724637681159" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/menu/menu.xml" value="0.17057291666666666" />
       </map>
     </option>

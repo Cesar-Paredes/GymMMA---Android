@@ -13,6 +13,7 @@ public class User {
     public String lastName;
     public String email;
     public String membership;
+    public String schedule;
 
 
     //a default constructor will allow me to create an object without initializing anything
@@ -21,12 +22,13 @@ public class User {
     }
 
     //this constructor will initialize all of our variables
-    public User(String username, String password, String firstName, String lastName, String email, String membership){
+    public User(String username, String password, String firstName, String lastName, String email, String membership, String schedule){
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.membership = membership;
+        this.schedule = schedule;
     }
 }

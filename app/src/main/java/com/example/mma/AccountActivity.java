@@ -234,7 +234,6 @@ public class AccountActivity extends AppCompatActivity {
     //updates the database with new user input, all fields are able to change except for email
     public void updateFields(){
 
-        Toast.makeText(AccountActivity.this,"updateFields!",Toast.LENGTH_SHORT).show();
         //so here layout and String variables get updated, user will see updated data now
 
         //PASS TEXTVIEW FROM LAYOUT TO HERE
@@ -284,7 +283,7 @@ public class AccountActivity extends AppCompatActivity {
         //initialize the firebase database
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        //goers to our table in database
+        //goes to our table in database
         databaseReference = firebaseDatabase.getReference("Users");
 
         //updates the info with HashMap user
@@ -295,7 +294,7 @@ public class AccountActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
 
 
-//                    updatePasswordAuth();
+                    Toast.makeText(AccountActivity.this,"Updated successfully!",Toast.LENGTH_SHORT).show();
 
 
                 }

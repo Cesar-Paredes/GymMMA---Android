@@ -35,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText lastNameBtn;
     EditText emailBtn;
 
+
     //register button, planning to store the the register button from layout to here
     Button registerBtn;
 
@@ -186,7 +187,7 @@ public class RegisterActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
 
                             //here i create a user object from the user java class i have created
-                            User user = new User(username, password, firstName, lastName, email, selectedMembership);
+                            User user = new User(username, password, firstName, lastName, email, selectedMembership,"");
 
                             //we call the firebase database object
                             FirebaseDatabase.getInstance().getReference("Users")
