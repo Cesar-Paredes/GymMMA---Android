@@ -91,7 +91,7 @@ public class ScheduleResultActivity extends AppCompatActivity {
                 case("BOXING"):
                     pic = R.drawable.ic_boxing_small_red;
                     break;
-                case("KICKBOXING"):
+                case("MUAY THAI"):
                     pic = R.drawable.ic_kickboxing_small_red;
                     break;
                 case("BJJ"):
@@ -154,10 +154,10 @@ public class ScheduleResultActivity extends AppCompatActivity {
                 clickMenuNavigate(AboutActivity.class);
                 return true;
 
-            case R.id.menuContact:
-                Toast.makeText(this,"Contact us!",Toast.LENGTH_SHORT).show();
-                clickMenuNavigate(ContactActivity.class);
-                return true;
+//            case R.id.menuContact:
+//                Toast.makeText(this,"Contact us!",Toast.LENGTH_SHORT).show();
+//                clickMenuNavigate(ContactActivity.class);
+//                return true;
 
             case R.id.menuNews:
                 Toast.makeText(this,"See whats happening in MMA!",Toast.LENGTH_SHORT).show();
