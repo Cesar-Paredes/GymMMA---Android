@@ -35,7 +35,7 @@
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_account.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_confirmation_registration.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_contact.xml" value="0.278125" />
-        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_group.xml" value="0.278125" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_group.xml" value="0.22635135135135134" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_home.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_news.xml" value="0.278125" />
@@ -44,6 +44,7 @@
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_registration_confirmation.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_schedule.xml" value="0.278125" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/activity_trainers.xml" value="0.39166666666666666" />
+        <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/appbar.xml" value="0.2984375" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/fragment_b_j_j_schedule.xml" value="0.264" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/fragment_boxing.xml" value="0.264" />
         <entry key="..\:/Users/cesar/AndroidStudioProjects/GymMMA---Android/app/src/main/res/layout/fragment_m_m_a.xml" value="0.264" />

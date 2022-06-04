@@ -43,7 +43,7 @@ public class GroupActivity extends AppCompatActivity {
 
 
 
-    String membershipFromDatabase="";
+    String membershipFromDatabase;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -61,7 +61,8 @@ public class GroupActivity extends AppCompatActivity {
     Spinner dropdown;
     String [] items;
 
-    String scheduleDate="";
+    String scheduleDate;
+
 
 
 
@@ -76,6 +77,15 @@ public class GroupActivity extends AppCompatActivity {
         toolbar=findViewById(R.id.mmaToolBar);
         setSupportActionBar(toolbar);
         Intent loginHomeIntent = getIntent();
+
+
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        //initialize the firebase database
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
+        databaseReference = firebaseDatabase.getReference("Users");
+
 
 
 
@@ -95,13 +105,14 @@ public class GroupActivity extends AppCompatActivity {
                 //this is the updated info that will go to our database
                 HashMap user = new HashMap();
 
-                user.put("schedule", scheduleDate);
+                user.put("schedule", scheduleDate); //puts the shedule date got it from the spinner dropdown
 
-                //initialize the firebase database
-                firebaseDatabase = FirebaseDatabase.getInstance();
+//                //initialize the firebase database
+//                firebaseDatabase = FirebaseDatabase.getInstance();
 
                 //goes to our table in database
-                databaseReference = firebaseDatabase.getReference("Users");
+//                databaseReference = firebaseDatabase.getReference("Users");
+
 
                 //updates the info with HashMap user
                 databaseReference.child(currentUser.getUid()).updateChildren(user).addOnCompleteListener(new OnCompleteListener() {
@@ -127,63 +138,87 @@ public class GroupActivity extends AppCompatActivity {
 
     }
 
-    public void correspondingSchedule(){
-
-        int count =0;
 
 
-        if(membershipFromDatabase.equalsIgnoreCase("BJJ")){
+        private void correspondingSchedule () {
+
+
+            items = new String[]{"BOOK A CLASS"};
+
+
+        if (membershipFromDatabase.equalsIgnoreCase("BJJ")) {
             //list of items for the spinner
-            items = new String[]{"BOOK A CLASS", Schedule.arrWednesday[1][0], Schedule.arrThursday[3][0],
-                    Schedule.arrFriday[3][0], Schedule.arrSaturday[1][0], Schedule.arrSunday[1][0]};
-            if(count==0){
-                count++;
+            items = new String[]{"BOOK A CLASS",
+                    Schedule.arrWednesday[1][0]+ "h " + Schedule.arrWednesday[1][1] + " " + Schedule.arrWednesday[1][2]+ " Wednesday",
+                    Schedule.arrThursday[3][0]+ "h " + Schedule.arrThursday[3][1]+ " " +Schedule.arrThursday[3][2]+ " Thursday",
+                    Schedule.arrFriday[3][0]+ "h " +  Schedule.arrFriday[3][1] + " " + Schedule.arrFriday[3][2] + " Friday",
+                    Schedule.arrSaturday[1][0]+ "h " + Schedule.arrSaturday[1][1]+ " "  + Schedule.arrSaturday[1][2]+ " Saturday" ,
+                    Schedule.arrSunday[1][0] + "h "+ Schedule.arrSunday[1][1]+ " " + Schedule.arrSunday[1][2]+ " Sunday" };
+
                 replaceFragment(new BJJSchedule());
-            }
 
 
-        }
-        else if(membershipFromDatabase.equalsIgnoreCase("boxing")){
-            items = new String[]{"BOOK A CLASS", Schedule.arrMonday[0][0], Schedule.arrTuesday[0][0],
-                    Schedule.arrThursday[1][0], Schedule.arrFriday[1][0], Schedule.arrSaturday[0][0],
-                    Schedule.arrSunday[0][0]};
-            if(count==0){
-                count++;
+
+        } else if (membershipFromDatabase.equalsIgnoreCase("boxing")) {
+            items = new String[]{"BOOK A CLASS",
+                    Schedule.arrMonday[0][0]+ "h " + Schedule.arrMonday[0][1] + " "+Schedule.arrMonday[0][2] + " Monday",
+                    Schedule.arrTuesday[0][0]+ "h " + Schedule.arrTuesday[0][1] + " "+Schedule.arrTuesday[0][2] + " Tuesday",
+                    Schedule.arrThursday[1][0] + "h "+Schedule.arrThursday[1][1]+ " " +Schedule.arrThursday[1][2] + " Thursday",
+                    Schedule.arrFriday[1][0]+ "h " +Schedule.arrFriday[1][1]+ " " +Schedule.arrFriday[1][2] + " Friday" ,
+                    Schedule.arrSaturday[0][0]+ "h " + Schedule.arrSaturday[0][1] + " "+Schedule.arrSaturday[0][2] + " Saturday",
+                    Schedule.arrSunday[0][0] + "h "+ Schedule.arrSunday[0][1]+ " " +Schedule.arrSunday[0][2] + " Sunday"};
+
                 replaceFragment(new BoxingFragment());
-            }
 
-        }
 
-        else if(membershipFromDatabase.equalsIgnoreCase("Muay-Thai")){
-            items = new String[]{"BOOK A CLASS", Schedule.arrMonday[1][0], Schedule.arrTuesday[1][0],
-                    Schedule.arrWednesday[0][0], Schedule.arrThursday[2][0], Schedule.arrFriday[2][0]};
-            if(count==0) {
-                count++;
+        } else if (membershipFromDatabase.equalsIgnoreCase("Muay-Thai")) {
+            items = new String[]{"BOOK A CLASS",
+                    Schedule.arrMonday[1][0] +"h " + " " + Schedule.arrMonday[1][1] + " " + Schedule.arrMonday[1][2] + " Monday",
+                    Schedule.arrTuesday[1][0] + "h "+ Schedule.arrTuesday[1][1]+ " " + Schedule.arrTuesday[1][2]+ " Tuesday",
+                    Schedule.arrWednesday[0][0]+ "h " + Schedule.arrThursday[2][1]+ " " + Schedule.arrFriday[2][2] + " Friday"};
+
                 replaceFragment(new MuayThaiFragment());
-            }
 
-        }
-        else if(membershipFromDatabase.equalsIgnoreCase("WRESTLING")){
-            items = new String[]{"BOOK A CLASS", Schedule.arrThursday[0][0], Schedule.arrFriday[0][0],
-                    Schedule.arrSaturday[2][0], Schedule.arrSunday[2][0]};
-            if(count==0) {
-                count++;
+
+        } else if (membershipFromDatabase.equalsIgnoreCase("WRESTLING")) {
+            items = new String[]{"BOOK A CLASS",
+                    Schedule.arrThursday[0][0] +"h "+ Schedule.arrThursday[0][1]+ " " +Schedule.arrThursday[0][2]+ " Thursday",
+                    Schedule.arrFriday[0][0]+"h " + Schedule.arrFriday[0][1]+ " " + Schedule.arrFriday[0][2]+ " Friday",
+                    Schedule.arrSaturday[2][0]+"h " +Schedule.arrSaturday[2][1]+ " " +Schedule.arrSaturday[2][2] + " Saturday",
+                    Schedule.arrSunday[2][0]+"h " + Schedule.arrSunday[2][1]+ " " + Schedule.arrSunday[2][2] + " Sunday"};
+
                 replaceFragment(new WrestlingFragment());
-            }
 
-        }
-        else{
-            items = new String[]{"BOOK A CLASS", Schedule.arrMonday[0][0], Schedule.arrMonday[1][0],
-                    Schedule.arrTuesday[0][0],  Schedule.arrTuesday[1][0], Schedule.arrWednesday[0][0],
-                    Schedule.arrWednesday[1][0], Schedule.arrThursday[0][0], Schedule.arrThursday[1][0],
-                    Schedule.arrThursday[2][0], Schedule.arrThursday[3][0], Schedule.arrFriday[0][0],
-                    Schedule.arrFriday[1][0], Schedule.arrFriday[2][0], Schedule.arrFriday[3][0],
-                    Schedule.arrSaturday[0][0], Schedule.arrSaturday[1][0], Schedule.arrSaturday[2][0],
-                    Schedule.arrSunday[0][0], Schedule.arrSunday[1][0], Schedule.arrSunday[2][0]};
-            if(count==0){
-                count++;
+
+        } else {
+            items = new String[]{"BOOK A CLASS",
+                    //BJJ
+                    Schedule.arrWednesday[1][0]+ "h " + Schedule.arrWednesday[1][1] + " " + Schedule.arrWednesday[1][2]+ " Wednesday",
+                    Schedule.arrThursday[3][0]+ "h " + Schedule.arrThursday[3][1]+ " " +Schedule.arrThursday[3][2]+ " Thursday",
+                    Schedule.arrFriday[3][0]+ "h " +  Schedule.arrFriday[3][1] + " " + Schedule.arrFriday[3][2] + " Friday",
+                    Schedule.arrSaturday[1][0]+ "h " + Schedule.arrSaturday[1][1]+ " "  + Schedule.arrSaturday[1][2]+ " Saturday" ,
+                    Schedule.arrSunday[1][0] + "h "+ Schedule.arrSunday[1][1]+ " " + Schedule.arrSunday[1][2]+ " Sunday",
+                    //boxing
+                    Schedule.arrMonday[0][0]+ "h " + Schedule.arrMonday[0][1] + " "+Schedule.arrMonday[0][2] + " Monday",
+                    Schedule.arrTuesday[0][0]+ "h " + Schedule.arrTuesday[0][1] + " "+Schedule.arrTuesday[0][2] + " Tuesday",
+                    Schedule.arrThursday[1][0] + "h "+Schedule.arrThursday[1][1]+ " " +Schedule.arrThursday[1][2] + " Thursday",
+                    Schedule.arrFriday[1][0]+ "h " +Schedule.arrFriday[1][1]+ " " +Schedule.arrFriday[1][2] + " Friday" ,
+                    Schedule.arrSaturday[0][0]+ "h " + Schedule.arrSaturday[0][1] + " "+Schedule.arrSaturday[0][2] + " Saturday",
+                    Schedule.arrSunday[0][0] + "h "+ Schedule.arrSunday[0][1]+ " " +Schedule.arrSunday[0][2] + " Sunday",
+                    //muaythai
+                    Schedule.arrMonday[1][0] +"h " + " " + Schedule.arrMonday[1][1] + " " + Schedule.arrMonday[1][2] + " Monday",
+                    Schedule.arrTuesday[1][0] + "h "+ Schedule.arrTuesday[1][1]+ " " + Schedule.arrTuesday[1][2]+ " Tuesday",
+                    Schedule.arrWednesday[0][0]+ "h " +  Schedule.arrThursday[2][1]+ " " + Schedule.arrFriday[2][2] + " Friday",
+                    //wrestling
+                    Schedule.arrThursday[0][0] +"h "+ Schedule.arrThursday[0][1]+ " " +Schedule.arrThursday[0][2]+ " Thursday",
+                    Schedule.arrFriday[0][0]+"h " + Schedule.arrFriday[0][1]+ " " + Schedule.arrFriday[0][2]+ " Friday",
+                    Schedule.arrSaturday[2][0]+"h " +Schedule.arrSaturday[2][1]+ " " +Schedule.arrSaturday[2][2] + " Saturday",
+                    Schedule.arrSunday[2][0]+"h " + Schedule.arrSunday[2][1]+ " " + Schedule.arrSunday[2][2] + " Sunday"};
+
+
+
                 replaceFragment(new MMAFragment());
-            }
+
 
         }
 
@@ -195,6 +230,7 @@ public class GroupActivity extends AppCompatActivity {
         //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
 
+        //program will always came back here as soon as we select the spinner dropdown
         dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -212,8 +248,8 @@ public class GroupActivity extends AppCompatActivity {
 
     }
 
-    //when it reach this part it closed, nothing
-    private void replaceFragment(Fragment fragment){
+        //when it reach this part it closed, nothing
+        private void replaceFragment (Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -222,42 +258,46 @@ public class GroupActivity extends AppCompatActivity {
     }
 
 //gets the membership from database of the current user
-    public void getMembershipCurrentUser(){
+        private void getMembershipCurrentUser () {
         //current user
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
-//        memberText = (TextView) findViewById(R.id.membershipText);
-//        button2 = (Button) findViewById(R.id.button2);
-
-
-        //initialize the firebase database
-        firebaseDatabase = FirebaseDatabase.getInstance();
+//        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+//
+////        memberText = (TextView) findViewById(R.id.membershipText);
+////        button2 = (Button) findViewById(R.id.button2);
+//
+//
+//        //initialize the firebase database
+//        firebaseDatabase = FirebaseDatabase.getInstance();
 
         //Gets the current user
-        databaseReference = firebaseDatabase.getReference("Users").child(currentUser.getUid());
+//        databaseReference = firebaseDatabase.getReference("Users").child(currentUser.getUid());
 
 
         //reference for our database, gets the current users value for membership
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.child(currentUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     membershipFromDatabase = String.valueOf(snapshot.child("membership").getValue());
 //                    memberText.setText(membershipFromDatabase);
                     correspondingSchedule();
-                }
-                else
-                    Toast.makeText(GroupActivity.this,"no data!",Toast.LENGTH_SHORT).show();
+                } else
+                    Toast.makeText(GroupActivity.this, "no data!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(GroupActivity.this,"Error!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(GroupActivity.this, "Error!", Toast.LENGTH_SHORT).show();
 
             }
         });
 
+
+
+
     }
+
+
 
     public void update(){
         //current user
