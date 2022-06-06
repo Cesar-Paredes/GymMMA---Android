@@ -25,12 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 public class HomeActivity extends AppCompatActivity {
     private Toolbar toolbar;
 
-    //added by Cesar Paredes
-    FirebaseDatabase database;
-    DatabaseReference databaseReference;
-    FirebaseAuth auth;
-    FirebaseUser user;
-    String membershipFromDatabase;
+
 
 
 
