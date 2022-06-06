@@ -19,8 +19,7 @@ import org.junit.Test;
 public class MainActivityTest {
 
     @Rule
-    public ActivityScenarioRule<MainActivity> mActivityTestRule
-            = new ActivityScenarioRule<MainActivity>(MainActivity.class);
+    public ActivityScenarioRule<MainActivity> mActivityTestRule = new ActivityScenarioRule<MainActivity>(MainActivity.class);
 
 
 
@@ -29,6 +28,7 @@ public class MainActivityTest {
 
     }
 
+    // TEST IF WANTED INPUTS/IMAGES ARE THERE
     @Test
     public void visibleLogoImg() {
         Espresso.onView(withId(R.id.imageView_mainGloves)).check(matches(isDisplayed()));
@@ -51,13 +51,30 @@ public class MainActivityTest {
 
     @Test
     public void visibleLoginButton() {
-        Espresso.onView(withId(R.id.button_mainLogin)).check(matches(isDisplayed()));
+        Espresso.onView(withId(R.id.button_mainRegister)).check(matches(isDisplayed()));
     }
 
     @Test
     public void visibleRegisterButton() {
         Espresso.onView(withId(R.id.button_mainRegister)).check(matches(isDisplayed()));
     }
+
+
+
+    @Test
+    public void loginVerification() {
+        ////TEST USERNAME
+        String mName = "gsp@gmail.com";
+
+        Espresso.onView(withId(R.id.editText_mainUsername)).perform(typeText("gsp@gmail.com"));
+        Espresso.closeSoftKeyboard();
+
+        Espresso.onView(withId(R.id.editText_mainPassword)).perform(typeText("gsp12345"));
+        Espresso.closeSoftKeyboard();
+
+        Espresso.onView(withId(R.id.button_mainLogin)).perform(click());
+    }
+
 
 
     @After
