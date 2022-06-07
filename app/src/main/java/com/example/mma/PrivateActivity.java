@@ -263,10 +263,28 @@ public class PrivateActivity extends AppCompatActivity implements DatePickerDial
                     spinner.setAdapter(adapter2);
                     spinner.setOnItemSelectedListener(this);
                     break;
-                default:
-                    ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,R.array.privateNoClasses, android.R.layout.simple_spinner_item);
+                case "Wednesday":
+                    ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,R.array.privateWednesday, android.R.layout.simple_spinner_item);
                     adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spinner.setAdapter(adapter3);
+                    spinner.setOnItemSelectedListener(this);
+                    break;
+                case "Thursday":
+                    ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this,R.array.privateThursday, android.R.layout.simple_spinner_item);
+                    adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner.setAdapter(adapter4);
+                    spinner.setOnItemSelectedListener(this);
+                    break;
+                case "Friday":
+                    ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(this,R.array.privateFriday, android.R.layout.simple_spinner_item);
+                    adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner.setAdapter(adapter5);
+                    spinner.setOnItemSelectedListener(this);
+                    break;
+                default:
+                    ArrayAdapter<CharSequence> adapter0 = ArrayAdapter.createFromResource(this,R.array.privateNoClasses, android.R.layout.simple_spinner_item);
+                    adapter0.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner.setAdapter(adapter0);
                     spinner.setOnItemSelectedListener(this);
                     dateTextClass.setText("ERROR");
             }

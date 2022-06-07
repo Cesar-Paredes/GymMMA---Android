@@ -9,50 +9,33 @@
     <string-array name="privateMonday">
         <item>----PICK A TIME-TRAINER-CLASS----</item>
         <item>20h - BOB - BOXING       - $40</item>
-        <item>20h - ROB - KICKBOXING   - $50</item>
-        <item>-----------------------------------------------------</item>
-        <item>21h - BOB - BOXING       - $40</item>
-        <item>21h - ROB - KICKBOXING   - $50</item>
+        <item>20h - ROB - MUAY THAI    - $50</item>
     </string-array>
 
     <string-array name="privateTuesday">
         <item>----PICK A TIME-TRAINER-CLASS----</item>
         <item>20h - BOB - BOXING       - $40</item>
-        <item>20h - ROB - KICKBOXING   - $50</item>
-        <item>-----------------------------------------------------</item>
-        <item>21h - BOB - BOXING       - $40</item>
-        <item>21h - ROB - KICKBOXING   - $50</item>
+        <item>20h - ROB - MUAY THAI    - $50</item>
     </string-array>
 
     <string-array name="privateWednesday">
         <item>----PICK A TIME-TRAINER-CLASS----</item>
         <item>20h - BOB - BOXING       - $40</item>
-        <item>20h - ROB - KICKBOXING   - $50</item>
-        <item>-----------------------------------------------------</item>
-        <item>21h - BOB - BOXING       - $40</item>
-        <item>21h - ROB - KICKBOXING   - $50</item>
+        <item>20h - ROB - MUAY THAI    - $50</item>
     </string-array>
 
     <string-array name="privateThursday">
         <item>----PICK A TIME-TRAINER-CLASS----</item>
         <item>20h - BOB - BOXING       - $40</item>
-        <item>20h - ROB - KICKBOXING   - $50</item>
+        <item>20h - ROB - MUAY THAI    - $50</item>
         <item>20h - WILL- BJJ          - $50</item>
-        <item>-----------------------------------------------------</item>
-        <item>21h - BOB - BOXING       - $40</item>
-        <item>21h - ROB - KICKBOXING   - $50</item>
-        <item>21h - WILL- BJJ          - $50</item>
     </string-array>
 
     <string-array name="privateFriday">
         <item>----PICK A TIME-TRAINER-CLASS----</item>
         <item>20h - BOB - BOXING       - $40</item>
-        <item>20h - ROB - KICKBOXING   - $50</item>
+        <item>20h - ROB - MUAY THAI    - $50</item>
         <item>20h - WILL- BJJ          - $50</item>
-        <item>-----------------------------------------------------</item>
-        <item>21h - BOB - BOXING       - $40</item>
-        <item>21h - ROB - KICKBOXING   - $50</item>
-        <item>21h - WILL- BJJ          - $50</item>
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
