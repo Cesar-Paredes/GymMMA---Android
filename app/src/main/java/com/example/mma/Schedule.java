@@ -17,7 +17,7 @@ public class Schedule {
 
     public static String[][] arrWednesday= {
             {"18", "MUAY THAI","Bob"},
-            {"19", "BJJ","Bill"},
+            {"19", "BJJ","Will"},
             {"20", "PRIVATE LESSONS",""}
     };
 
