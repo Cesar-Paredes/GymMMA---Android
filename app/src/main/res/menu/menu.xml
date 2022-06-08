@@ -62,12 +62,12 @@
 <!--                android:id="@+id/menuContact"-->
 <!--                app:showAsAction="ifRoom"-->
 <!--                />-->
-            <item
-                android:title="MMA News"
-                android:icon="@drawable/ic_news_small_red"
-                android:id="@+id/menuNews"
-                app:showAsAction="ifRoom"
-                />
+<!--            <item-->
+<!--                android:title="MMA News"-->
+<!--                android:icon="@drawable/ic_news_small_red"-->
+<!--                android:id="@+id/menuNews"-->
+<!--                app:showAsAction="ifRoom"-->
+<!--                />-->
             <item
                 android:title="Trainers"
                 android:icon="@drawable/ic_trainers_small_red"

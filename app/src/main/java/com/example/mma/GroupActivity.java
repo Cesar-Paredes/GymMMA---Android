@@ -463,10 +463,10 @@ public class GroupActivity extends AppCompatActivity {
 //                clickMenuNavigate(ContactActivity.class);
 //                return true;
 
-            case R.id.menuNews:
-                Toast.makeText(this,"See whats happening in MMA!",Toast.LENGTH_SHORT).show();
-                clickMenuNavigate(NewsActivity.class);
-                return true;
+//            case R.id.menuNews:
+//                Toast.makeText(this,"See whats happening in MMA!",Toast.LENGTH_SHORT).show();
+//                clickMenuNavigate(NewsActivity.class);
+//                return true;
 
             case R.id.menuTrainers:
                 Toast.makeText(this,"View our trainers!",Toast.LENGTH_SHORT).show();
